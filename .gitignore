@@ -613,3 +613,4 @@ target/classes/templates/vm/java/Service.java.vm
 target/classes/templates/vm/java/ServiceImpl.java.vm
 target/classes/templates/vm/sql/sql.vm
 target/classes/templates/vm/xml/Mapper.xml.vm
+/target/

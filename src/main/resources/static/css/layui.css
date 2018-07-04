@@ -1,4 +1,4 @@
-/** åˆå§‹åŒ– **/
+/** ³õÊ¼»¯ **/
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,input,button,textarea,p,blockquote,th,td,form,pre{margin: 0; padding: 0; -webkit-tap-highlight-color:rgba(0,0,0,0);}
 a:active,a:hover{outline:0}
 img{display: inline-block; border: none; vertical-align: middle;}
@@ -11,7 +11,7 @@ input,button,textarea,select,optgroup,option{font-family: inherit; font-size: in
 pre{white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;}
 
 
-/** å›¾æ ‡å­—ä½“ **/
+/** Í¼±ê×ÖÌå **/
 @font-face {font-family: 'layui-icon';
   src: url('../font/iconfont.eot?v=213');
   src: url('../font/iconfont.eot?v=213#iefix') format('embedded-opentype'),
@@ -28,29 +28,29 @@ pre{white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; w
   -moz-osx-font-smoothing: grayscale;
 }
 
-/** åˆå§‹åŒ–å…¨å±€æ ‡ç­¾ **/
+/** ³õÊ¼»¯È«¾Ö±êÇ© **/
 body{line-height: 24px; font: 14px Helvetica Neue,Helvetica,PingFang SC,\5FAE\8F6F\96C5\9ED1,Tahoma,Arial,sans-serif;}
 hr{height: 1px; margin: 10px 0; border: 0; background-color: #e2e2e2; clear: both;}
 a{color: #333; text-decoration:none; }
 a:hover{color: #777;}
 a cite{font-style: normal; *cursor:pointer;}
 
-/** åŸºç¡€é€šç”¨ **/
+/** »ù´¡Í¨ÓÃ **/
 .layui-border-box, .layui-border-box *{box-sizing: border-box;}
-/* æ¶ˆé™¤ç¬¬ä¸‰æ–¹uiå¯èƒ½é€ æˆçš„å†²çª */.layui-box, .layui-box *{box-sizing: content-box;}
+/* Ïû³ıµÚÈı·½ui¿ÉÄÜÔì³ÉµÄ³åÍ» */.layui-box, .layui-box *{box-sizing: content-box;}
 .layui-clear{clear: both; *zoom: 1;}
 .layui-clear:after{content:'\20'; clear:both; *zoom:1; display:block; height:0;}
 .layui-inline{position: relative; display: inline-block; *display:inline; *zoom:1; vertical-align: middle;}
-/* ä¸‰è§’å½¢ */.layui-edge{position: absolute; width: 0; height: 0; border-style: dashed; border-color: transparent; overflow: hidden;}
-/* å•è¡Œæº¢å‡ºçœç•¥ */.layui-elip{text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
-/* å±è”½é€‰ä¸­ */.layui-unselect,.layui-icon, .layui-disabled{-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none;}
-/* ç¦ç”¨ */.layui-disabled,.layui-disabled:hover{color: #d2d2d2 !important; cursor: not-allowed !important;}
-/* çº¯åœ†è§’ */.layui-circle{border-radius: 100%;}
+/* Èı½ÇĞÎ */.layui-edge{position: absolute; width: 0; height: 0; border-style: dashed; border-color: transparent; overflow: hidden;}
+/* µ¥ĞĞÒç³öÊ¡ÂÔ */.layui-elip{text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+/* ÆÁ±ÎÑ¡ÖĞ */.layui-unselect,.layui-icon, .layui-disabled{-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none;}
+/* ½ûÓÃ */.layui-disabled,.layui-disabled:hover{color: #d2d2d2 !important; cursor: not-allowed !important;}
+/* ´¿Ô²½Ç */.layui-circle{border-radius: 100%;}
 .layui-show{display: block !important;}
 .layui-hide{display: none !important;}
 
 
-/* åŸºæœ¬å¸ƒå±€ */
+/* »ù±¾²¼¾Ö */
 .layui-main{position: relative; width: 1140px; margin: 0 auto;}
 .layui-header{position: relative; z-index: 1000; height: 60px;}
 .layui-header a:hover{transition: all .5s; -webkit-transition: all .5s;}
@@ -58,7 +58,7 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-side-scroll{width: 220px; height: 100%; overflow-x: hidden;}
 .layui-body{position: absolute; left: 200px; right: 0; top: 0; bottom: 0; z-index: 998; width: auto; overflow: hidden; overflow-y: auto; box-sizing: border-box;}
 
-/* åå°æ¡†æ¶å¤§å¸ƒå±€ */.layui-layout-body{overflow: hidden;}
+/* ºóÌ¨¿ò¼Ü´ó²¼¾Ö */.layui-layout-body{overflow: hidden;}
 .layui-layout-admin .layui-header{background-color: #23262E;}
 .layui-layout-admin .layui-side{top: 60px; width: 200px; overflow-x: hidden;}
 .layui-layout-admin .layui-body{top: 60px; bottom: 44px;}
@@ -69,10 +69,10 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-layout-left{position: absolute !important; left: 200px; top: 0;}
 .layui-layout-right{position: absolute !important; right: 0; top: 0;}
 
-/* å“åº”å¼ç±» */
+/* ÏìÓ¦Ê½Àà */
 
 
-/* æ …æ ¼å¸ƒå±€ */
+/* Õ¤¸ñ²¼¾Ö */
 .layui-container{position: relative; margin: 0 auto; padding: 0 15px; box-sizing: border-box;}
 .layui-fluid{position: relative; margin: 0 auto; padding: 0 15px;}
 
@@ -110,14 +110,14 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-col-xs-offset11{margin-left: 91.66666667%;}
 .layui-col-xs-offset12{margin-left: 100%;}
 
-/* è¶…å°å±å¹•(æ‰‹æœº) */@media screen and (max-width: 768px) {
+/* ³¬Ğ¡ÆÁÄ»(ÊÖ»ú) */@media screen and (max-width: 768px) {
   .layui-hide-xs{display: none!important;}
   .layui-show-xs-block{display: block!important;}
   .layui-show-xs-inline{display: inline!important;}
   .layui-show-xs-inline-block{display: inline-block!important;}
 }
 
-/* å°å‹å±å¹•(å¹³æ¿) */@media screen and (min-width: 768px) {
+/* Ğ¡ĞÍÆÁÄ»(Æ½°å) */@media screen and (min-width: 768px) {
   .layui-container{width: 750px;}
   .layui-hide-sm{display: none!important;}
   .layui-show-sm-block{display: block!important;}
@@ -137,7 +137,7 @@ a cite{font-style: normal; *cursor:pointer;}
   .layui-col-sm10{width: 83.33333333%;}
   .layui-col-sm11{width: 91.66666667%;}
   .layui-col-sm12{width: 100%;}
-  /* åˆ—åç§» */
+  /* ÁĞÆ«ÒÆ */
   .layui-col-sm-offset1{margin-left: 8.33333333%;}
   .layui-col-sm-offset2{margin-left: 16.66666667%;}
   .layui-col-sm-offset3{margin-left: 25%;}
@@ -151,7 +151,7 @@ a cite{font-style: normal; *cursor:pointer;}
   .layui-col-sm-offset11{margin-left: 91.66666667%;}
   .layui-col-sm-offset12{margin-left: 100%;}
 }
-/* ä¸­å‹å±å¹•(æ¡Œé¢) */@media screen and (min-width: 992px) {
+/* ÖĞĞÍÆÁÄ»(×ÀÃæ) */@media screen and (min-width: 992px) {
   .layui-container{width: 970px;}
   .layui-hide-md{display: none!important;}
   .layui-show-md-block{display: block!important;}
@@ -171,7 +171,7 @@ a cite{font-style: normal; *cursor:pointer;}
   .layui-col-md10{width: 83.33333333%;}
   .layui-col-md11{width: 91.66666667%;}
   .layui-col-md12{width: 100%;}
-  /* åˆ—åç§» */
+  /* ÁĞÆ«ÒÆ */
   .layui-col-md-offset1{margin-left: 8.33333333%;}
   .layui-col-md-offset2{margin-left: 16.66666667%;}
   .layui-col-md-offset3{margin-left: 25%;}
@@ -185,7 +185,7 @@ a cite{font-style: normal; *cursor:pointer;}
   .layui-col-md-offset11{margin-left: 91.66666667%;}
   .layui-col-md-offset12{margin-left: 100%;}
 }
-/* å¤§å‹å±å¹•(æ¡Œé¢) */@media screen and (min-width: 1200px) {
+/* ´óĞÍÆÁÄ»(×ÀÃæ) */@media screen and (min-width: 1200px) {
   .layui-container{width: 1170px;}
   .layui-hide-lg{display: none!important;}
   .layui-show-lg-block{display: block!important;}
@@ -205,7 +205,7 @@ a cite{font-style: normal; *cursor:pointer;}
   .layui-col-lg10{width: 83.33333333%;}
   .layui-col-lg11{width: 91.66666667%;}
   .layui-col-lg12{width: 100%;}
-  /* åˆ—åç§» */
+  /* ÁĞÆ«ÒÆ */
   .layui-col-lg-offset1{margin-left: 8.33333333%;}
   .layui-col-lg-offset2{margin-left: 16.66666667%;}
   .layui-col-lg-offset3{margin-left: 25%;}
@@ -220,7 +220,7 @@ a cite{font-style: normal; *cursor:pointer;}
   .layui-col-lg-offset12{margin-left: 100%;}
 }
 
-/* åˆ—é—´éš” */.layui-col-space1{margin: -0.5px;}
+/* ÁĞ¼ä¸ô */.layui-col-space1{margin: -0.5px;}
 .layui-col-space1>*{padding: 0.5px;}
 .layui-col-space3{margin: -1.5px;}
 .layui-col-space3>*{padding: 1.5px;}
@@ -246,18 +246,18 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-col-space30>*{padding: 15px;}
 
 
-/** é¡µé¢å…ƒç´  **/
+/** Ò³ÃæÔªËØ **/
 .layui-btn, .layui-input, .layui-textarea, .layui-upload-button, .layui-select{outline: none; -webkit-appearance: none; transition: all .3s; -webkit-transition: all .3s; box-sizing: border-box;}
 
-/* å¼•ç”¨ */.layui-elem-quote{margin-bottom: 10px; padding: 15px; line-height: 22px; border-left: 5px solid #009688; border-radius: 0 2px 2px 0; background-color: #f2f2f2;}
+/* ÒıÓÃ */.layui-elem-quote{margin-bottom: 10px; padding: 15px; line-height: 22px; border-left: 5px solid #009688; border-radius: 0 2px 2px 0; background-color: #f2f2f2;}
 .layui-quote-nm{border-color: #e2e2e2; border-style: solid; border-width: 1px; border-left-width: 5px; background: none;}
-/* å­—æ®µé›†åˆ */.layui-elem-field{margin-bottom: 10px; padding: 0; border: 1px solid #e2e2e2;}
+/* ×Ö¶Î¼¯ºÏ */.layui-elem-field{margin-bottom: 10px; padding: 0; border: 1px solid #e2e2e2;}
 .layui-elem-field legend{margin-left: 20px; padding: 0 10px; font-size: 20px; font-weight: 300;}
 .layui-field-title{margin: 10px 0 20px; border: none; border-top: 1px solid #e2e2e2;}
 .layui-field-box{padding: 10px 15px;}
 .layui-field-title .layui-field-box{padding: 10px 0;}
 
-/* è¿›åº¦æ¡ */
+/* ½ø¶ÈÌõ */
 .layui-progress{position: relative; height: 6px; border-radius: 20px; background-color: #e2e2e2;}
 .layui-progress-bar{position: absolute; width: 0; max-width: 100%; height: 6px; border-radius: 20px; text-align: right; background-color: #5FB878; transition: all .3s; -webkit-transition: all .3s;}
 .layui-progress-big,
@@ -265,7 +265,7 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-progress-text{position: relative; top: -18px; line-height: 18px; font-size: 12px; color: #666}
 .layui-progress-big .layui-progress-text{position: static; padding: 0 10px; color: #fff;}
 
-/* æŠ˜å é¢æ¿ */
+/* ÕÛµşÃæ°å */
 .layui-collapse{border: 1px solid #e2e2e2; border-radius: 2px;}
 .layui-colla-item{border-top: 1px solid #e2e2e2}
 .layui-colla-item:first-child{border-top: none;}
@@ -274,17 +274,17 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-colla-icon{position: absolute; left: 15px; top: 0; font-size: 14px;}
 
 
-/* èƒŒæ™¯é¢œè‰² */
-.layui-bg-red{background-color: #FF5722 !important; color: #fff!important;} /*èµ¤*/
-.layui-bg-orange{background-color: #FFB800!important; color: #fff!important;} /*æ©™*/
-.layui-bg-green{background-color: #009688!important; color: #fff!important;} /*ç»¿*/
-.layui-bg-cyan{background-color: #2F4056!important; color: #fff!important;} /*é’*/
-.layui-bg-blue{background-color: #1E9FFF!important; color: #fff!important;} /*è“*/
-.layui-bg-black{background-color: #393D49!important; color: #fff!important;} /*é»‘*/
-.layui-bg-gray{background-color: #eee!important; color: #666!important;} /*ç°*/
+/* ±³¾°ÑÕÉ« */
+.layui-bg-red{background-color: #FF5722 !important; color: #fff!important;} /*³à*/
+.layui-bg-orange{background-color: #FFB800!important; color: #fff!important;} /*³È*/
+.layui-bg-green{background-color: #009688!important; color: #fff!important;} /*ÂÌ*/
+.layui-bg-cyan{background-color: #2F4056!important; color: #fff!important;} /*Çà*/
+.layui-bg-blue{background-color: #1E9FFF!important; color: #fff!important;} /*À¶*/
+.layui-bg-black{background-color: #393D49!important; color: #fff!important;} /*ºÚ*/
+.layui-bg-gray{background-color: #eee!important; color: #666!important;} /*»Ò*/
 
 
-/* æ–‡æœ¬åŒºåŸŸ */
+/* ÎÄ±¾ÇøÓò */
 .layui-text{line-height: 22px; font-size: 14px; color: #666;}
 .layui-text h1,
 .layui-text h2,
@@ -299,27 +299,27 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-text em,
 .layui-word-aux{color: #999 !important; padding: 0 5px !important;}
 
-/* æŒ‰é’® */
+/* °´Å¥ */
 .layui-btn{display: inline-block; vertical-align: middle; height: 38px; line-height: 38px; padding: 0 18px; background-color: #009688; color: #fff; white-space: nowrap; text-align: center; font-size: 14px; border: none; border-radius: 2px; cursor: pointer; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none;}
 .layui-btn:hover{opacity: 0.8; filter:alpha(opacity=80); color: #fff;}
 .layui-btn:active{opacity: 1; filter:alpha(opacity=100);}
 .layui-btn+.layui-btn{margin-left: 10px;}
-/* åœ†è§’ */.layui-btn-radius{border-radius: 100px;}
+/* Ô²½Ç */.layui-btn-radius{border-radius: 100px;}
 .layui-btn .layui-icon{margin-right: 3px; font-size: 18px; vertical-align: bottom; vertical-align: middle\0;}
 
-/* åŸå§‹ */.layui-btn-primary{border: 1px solid #C9C9C9; background-color: #fff; color: #555;}
+/* Ô­Ê¼ */.layui-btn-primary{border: 1px solid #C9C9C9; background-color: #fff; color: #555;}
 .layui-btn-primary:hover{border-color: #009688; color: #333}
-/* ç™¾æ­ */.layui-btn-normal{background-color: #1E9FFF;}
-/* æš–è‰² */.layui-btn-warm{background-color: #FFB800;}
-/* è­¦å‘Š */.layui-btn-danger{background-color: #FF5722;}
-/* ç¦ç”¨ */.layui-btn-disabled,.layui-btn-disabled:hover,.layui-btn-disabled:active{border: 1px solid #e6e6e6; background-color: #FBFBFB; color: #C9C9C9; cursor: not-allowed; opacity: 1;}
+/* °Ù´î */.layui-btn-normal{background-color: #1E9FFF;}
+/* Å¯É« */.layui-btn-warm{background-color: #FFB800;}
+/* ¾¯¸æ */.layui-btn-danger{background-color: #FF5722;}
+/* ½ûÓÃ */.layui-btn-disabled,.layui-btn-disabled:hover,.layui-btn-disabled:active{border: 1px solid #e6e6e6; background-color: #FBFBFB; color: #C9C9C9; cursor: not-allowed; opacity: 1;}
 
-/* å¤§å‹ */.layui-btn-big{height: 44px; line-height: 44px; padding: 0 25px; font-size: 16px;}
-/* å°å‹ */.layui-btn-small{height: 30px; line-height: 30px; padding: 0 10px; font-size: 12px;}
+/* ´óĞÍ */.layui-btn-big{height: 44px; line-height: 44px; padding: 0 25px; font-size: 16px;}
+/* Ğ¡ĞÍ */.layui-btn-small{height: 30px; line-height: 30px; padding: 0 10px; font-size: 12px;}
 .layui-btn-small i{font-size: 16px !important;}
-/* è¿·ä½  */.layui-btn-mini{height: 22px; line-height: 22px; padding: 0 5px; font-size: 12px;}
+/* ÃÔÄã */.layui-btn-mini{height: 22px; line-height: 22px; padding: 0 5px; font-size: 12px;}
 .layui-btn-mini i{font-size: 14px !important;}
-/* æŒ‰é’®ç»„ */.layui-btn-group{display: inline-block; vertical-align: middle; font-size: 0;}
+/* °´Å¥×é */.layui-btn-group{display: inline-block; vertical-align: middle; font-size: 0;}
 .layui-btn-group .layui-btn{margin-left: 0!important; margin-right: 0!important; border-left: 1px solid rgba(255,255,255,.5); border-radius: 0;}
 .layui-btn-group .layui-btn-primary{border-left: none;}
 .layui-btn-group .layui-btn-primary:hover{border-color: #C9C9C9; color: #009688;}
@@ -329,7 +329,7 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-btn-group .layui-btn+.layui-btn{margin-left: 0;}
 .layui-btn-group+.layui-btn-group{margin-left: 10px;}
 
-/** è¡¨å• **/
+/** ±íµ¥ **/
 .layui-input, .layui-textarea, .layui-select{height: 38px; line-height: 1.3; line-height: 38px\9; border: 1px solid #e6e6e6; background-color: #fff; border-radius: 2px;}
 .layui-input::-webkit-input-placeholder,
 .layui-textarea::-webkit-input-placeholder,
@@ -353,12 +353,12 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-form-item .layui-input-inline{float: left; width: 190px; margin-right: 10px;}
 .layui-form-text .layui-input-inline{width: auto;}
 
-/* åˆ†å‰²å— */.layui-form-mid{position: relative; float: left; display: block; padding: 8px 0 !important; line-height: 20px; margin-right: 10px;}
-/* è­¦å‘ŠåŸŸ */.layui-form-danger:focus
+/* ·Ö¸î¿é */.layui-form-mid{position: relative; float: left; display: block; padding: 8px 0 !important; line-height: 20px; margin-right: 10px;}
+/* ¾¯¸æÓò */.layui-form-danger:focus
 ,.layui-form-danger+.layui-form-select .layui-input{border: 1px solid #FF5722 !important;}
 
 
-/* ä¸‹æ‹‰é€‰æ‹© */.layui-form-select{position: relative;}
+/* ÏÂÀ­Ñ¡Ôñ */.layui-form-select{position: relative;}
 .layui-form-select .layui-input{padding-right: 30px; cursor: pointer;}
 .layui-form-select .layui-edge{position: absolute; right: 10px; top: 50%; margin-top: -3px; cursor: pointer; border-width: 6px; border-top-color: #c2c2c2; border-top-style: solid; transition: all .3s; -webkit-transition: all .3s;}
 .layui-form-select dl{display: none; position: absolute; left: 0; top: 42px; padding: 5px 0; z-index: 999; min-width: 100%; border: 1px solid #d2d2d2; max-height: 300px; overflow-y: auto; background-color: #fff; border-radius: 2px; box-shadow: 0 2px 4px rgba(0,0,0,.12); box-sizing: border-box;}
@@ -381,7 +381,7 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-select-disabled .layui-disabled{border-color: #eee !important;}
 .layui-select-disabled .layui-edge{border-top-color: #d2d2d2}
 
-/* å¤é€‰æ¡† */.layui-form-checkbox{position: relative; display: inline-block; vertical-align: middle; height: 30px; line-height: 28px; margin-right: 10px; padding-right: 30px; border: 1px solid #d2d2d2; background-color: #fff; cursor: pointer; font-size: 0; border-radius: 2px;  -webkit-transition: .1s linear; transition: .1s linear; box-sizing: border-box;}
+/* ¸´Ñ¡¿ò */.layui-form-checkbox{position: relative; display: inline-block; vertical-align: middle; height: 30px; line-height: 28px; margin-right: 10px; padding-right: 30px; border: 1px solid #d2d2d2; background-color: #fff; cursor: pointer; font-size: 0; border-radius: 2px;  -webkit-transition: .1s linear; transition: .1s linear; box-sizing: border-box;}
 .layui-form-checkbox:hover{border: 1px solid #c2c2c2;}
 .layui-form-checkbox *{display: inline-block; vertical-align: middle;}
 .layui-form-checkbox span{padding: 0 10px; height: 100%; font-size: 14px; background-color: #d2d2d2; color: #fff; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
@@ -393,7 +393,7 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-form-checked i, .layui-form-checked:hover i{color: #5FB878;}
 .layui-form-item .layui-form-checkbox{margin-top: 4px;}
 
-/* å¤é€‰æ¡†-åŸå§‹é£æ ¼ */.layui-form-checkbox[lay-skin="primary"]{height: auto!important; line-height: normal!important; border: none!important; margin-right: 0; padding-right: 0; background: none;}
+/* ¸´Ñ¡¿ò-Ô­Ê¼·ç¸ñ */.layui-form-checkbox[lay-skin="primary"]{height: auto!important; line-height: normal!important; border: none!important; margin-right: 0; padding-right: 0; background: none;}
 .layui-form-checkbox[lay-skin="primary"] span{float: right; padding-right: 15px; line-height: 18px; background: none; color: #666;}
 .layui-form-checkbox[lay-skin="primary"] i{position: relative; top: 0; width: 16px; height: 16px; line-height: 16px; border: 1px solid #d2d2d2; font-size: 12px; border-radius: 2px; background-color: #fff; -webkit-transition: .1s linear; transition: .1s linear;}
 .layui-form-checkbox[lay-skin="primary"]:hover i{border-color: #5FB878; color: #fff;}
@@ -402,7 +402,7 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-checkbox-disbaled[lay-skin="primary"]:hover i{border-color: #d2d2d2;}
 .layui-form-item .layui-form-checkbox[lay-skin="primary"]{margin-top: 10px;}
 
-/* å¤é€‰æ¡†-å¼€å…³é£æ ¼ */.layui-form-switch{position: relative; display: inline-block; vertical-align: middle; height: 22px; line-height: 22px; width: 42px; padding: 0 5px; margin-top: 8px; border: 1px solid #d2d2d2; border-radius: 20px; cursor: pointer; background-color: #fff; -webkit-transition: .1s linear; transition: .1s linear;}
+/* ¸´Ñ¡¿ò-¿ª¹Ø·ç¸ñ */.layui-form-switch{position: relative; display: inline-block; vertical-align: middle; height: 22px; line-height: 22px; width: 42px; padding: 0 5px; margin-top: 8px; border: 1px solid #d2d2d2; border-radius: 20px; cursor: pointer; background-color: #fff; -webkit-transition: .1s linear; transition: .1s linear;}
 .layui-form-switch i{position: absolute; left: 5px; top: 3px; width: 16px; height: 16px; border-radius: 20px; background-color: #d2d2d2; -webkit-transition: .1s linear; transition: .1s linear;}
 .layui-form-switch em{position: absolute; right: 5px; top: 0; width: 25px; padding: 0!important; text-align: center!important; color: #999!important; font-style: normal!important; font-size: 12px;}
 .layui-form-onswitch{border-color: #5FB878; background-color: #5FB878;}
@@ -413,7 +413,7 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-checkbox-disbaled span{background-color: #e2e2e2 !important;}
 .layui-checkbox-disbaled:hover i{color: #fff !important;}
 
-/* å•é€‰æ¡† */
+/* µ¥Ñ¡¿ò */
 .layui-form-radio{display: inline-block; vertical-align: middle; line-height: 28px; margin: 6px 10px 0 0; padding-right: 10px; cursor: pointer; font-size: 0;}
 .layui-form-radio *{display: inline-block; vertical-align: middle;}
 .layui-form-radio i{margin-right: 8px; font-size: 22px; color: #c2c2c2;}
@@ -421,7 +421,7 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-form-radioed i,.layui-form-radio i:hover{color: #5FB878;}
 .layui-radio-disbaled i{color: #e2e2e2 !important;}
 
-/* è¡¨å•æ–¹æ¡†é£æ ¼ */.layui-form-pane .layui-form-label{width: 110px; padding: 8px 15px; height: 38px; line-height: 20px; border: 1px solid #e6e6e6; border-radius: 2px 0 0 2px; text-align: center; background-color: #FBFBFB; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; box-sizing: border-box;}
+/* ±íµ¥·½¿ò·ç¸ñ */.layui-form-pane .layui-form-label{width: 110px; padding: 8px 15px; height: 38px; line-height: 20px; border: 1px solid #e6e6e6; border-radius: 2px 0 0 2px; text-align: center; background-color: #FBFBFB; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; box-sizing: border-box;}
 .layui-form-pane .layui-input-inline{margin-left: -1px;}
 .layui-form-pane .layui-input-block{margin-left: 110px; left: -1px;}
 .layui-form-pane .layui-input{border-radius: 0 2px 2px 0;}
@@ -436,7 +436,7 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-form-pane .layui-form-item[pane] .layui-form-label{position: absolute; left: 0; top: 0; height: 100%; border-width: 0px; border-right-width: 1px;}
 .layui-form-pane .layui-form-item[pane] .layui-input-inline{margin-left: 110px;}
 
-/** è¡¨å•å“åº”å¼ **/
+/** ±íµ¥ÏìÓ¦Ê½ **/
 @media screen and (max-width: 450px) {
   .layui-form-item .layui-form-label{text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
   .layui-form-item .layui-inline{display: block; margin-right: 0; margin-bottom: 20px; clear: both;}
@@ -446,7 +446,7 @@ a cite{font-style: normal; *cursor:pointer;}
   .layui-form-item .layui-form-checkbox{margin-right: 5px; margin-bottom: 5px;}
 }
 
-/** å¯Œæ–‡æœ¬ç¼–è¾‘å™¨ **/
+/** ¸»ÎÄ±¾±à¼­Æ÷ **/
 .layui-layedit{border: 1px solid #d2d2d2; border-radius: 2px;}
 .layui-layedit-tool{padding: 3px 5px; border-bottom: 1px solid #e2e2e2; font-size: 0;}
 .layedit-tool-fixed{position: fixed; top: 0; border-top: 1px solid #e2e2e2;}
@@ -473,7 +473,7 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-layedit-iframe iframe{display: block; width: 100%;}
 #LAY_layedit_code{overflow: hidden;}
 
-/** åˆ†é¡µ **/
+/** ·ÖÒ³ **/
 .layui-laypage{display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; margin: 10px 0; font-size: 0;}
 .layui-laypage>a:first-child,
 .layui-laypage>a:first-child em{border-radius: 2px 0 0 2px;}
@@ -511,7 +511,7 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-laypage select:focus{border-color: #009688!important;}
 .layui-laypage button{margin-left: 10px; padding: 0 10px; cursor: pointer;}
 
-/** æµåŠ è½½ **/
+/** Á÷¼ÓÔØ **/
 .layui-flow-more{margin: 10px 0; text-align: center; color: #999; font-size: 14px;}
 .layui-flow-more a{ height: 32px; line-height: 32px;  }
 .layui-flow-more a *{display: inline-block; vertical-align: top;}
@@ -519,7 +519,7 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-flow-more a cite:hover{opacity: 0.8;}
 .layui-flow-more a i{font-size: 30px; color: #737383;}
 
-/** è¡¨æ ¼ **/
+/** ±í¸ñ **/
 .layui-table{width: 100%; margin: 10px 0; background-color: #fff;}
 .layui-table tr{transition: all .3s; -webkit-transition: all .3s;}
 .layui-table thead tr,
@@ -550,14 +550,14 @@ a cite{font-style: normal; *cursor:pointer;}
 
 .layui-table img{max-width:100px;}
 
-/* å¤§è¡¨æ ¼ */.layui-table[lay-size="lg"] th,
+/* ´ó±í¸ñ */.layui-table[lay-size="lg"] th,
 .layui-table[lay-size="lg"] td{padding-top: 15px; padding-right: 30px; padding-bottom: 15px; padding-left: 30px;}
 .layui-table-view .layui-table[lay-size="lg"] .layui-table-cell{height: 40px; line-height: 40px;}  
-/* å°è¡¨æ ¼ */.layui-table[lay-size="sm"] th,
+/* Ğ¡±í¸ñ */.layui-table[lay-size="sm"] th,
 .layui-table[lay-size="sm"] td{padding-top: 5px; padding-right: 10px; padding-bottom: 5px; padding-left: 10px; font-size: 12px;}
 .layui-table-view .layui-table[lay-size="sm"] .layui-table-cell{height: 20px; line-height: 20px;} 
 
-/* æ•°æ®è¡¨æ ¼ */
+/* Êı¾İ±í¸ñ */
 .layui-table[lay-data]{display: none;}
 .layui-table-view{position: relative; margin: 10px 0; overflow: hidden;}
 .layui-table-view .layui-table{position: relative; width: auto; margin: 0;}
@@ -617,7 +617,7 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 .layui-table-tips-c:hover{background-color: #999;}
 
 
-/** æ–‡ä»¶ä¸Šä¼  **/
+/** ÎÄ¼şÉÏ´« **/
 .layui-upload-file{display: none!important; opacity: .01; filter: Alpha(opacity=1);}
 .layui-upload-list{margin: 10px 0;}
 .layui-upload-choose{padding: 0 10px; color: #999;}
@@ -631,11 +631,11 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 
 
 
-/** ä»£ç ä¿®é¥°å™¨ **/
+/** ´úÂëĞŞÊÎÆ÷ **/
 .layui-code{position: relative; margin: 10px 0; padding: 15px; line-height: 20px; border: 1px solid #ddd; border-left-width: 6px; background-color: #F2F2F2; color: #333; font-family: Courier New; font-size: 12px;}
 
 
-/** æ ‘ç»„ä»¶ **/
+/** Ê÷×é¼ş **/
 .layui-tree{line-height: 26px;}
 .layui-tree li{text-overflow: ellipsis; overflow:hidden; white-space: nowrap;}
 .layui-tree li a, 
@@ -651,7 +651,7 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 .layui-tree-drag{display: none; position: absolute; left: -666px; top: -666px; background-color: #f2f2f2; padding: 5px 10px; border: 1px dotted #000; white-space: nowrap}
 .layui-tree-drag i{padding-right: 5px;}
 
-/** å¯¼èˆªèœå• **/
+/** µ¼º½²Ëµ¥ **/
 .layui-nav{position: relative; padding: 0 20px; background-color: #393D49; color: #fff; border-radius: 2px; font-size: 0; box-sizing: border-box;}
 .layui-nav *{font-size: 14px;}
 .layui-nav .layui-nav-item{position: relative; display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; line-height: 60px;}
@@ -678,7 +678,7 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 .layui-nav .layui-nav-child dd.layui-this a{background-color: #5FB878; color: #fff;}
 .layui-nav-child dd.layui-this:after{display: none;}
 
-/* å‚ç›´å¯¼èˆªèœå• */.layui-nav-tree{width: 200px; padding: 0;}
+/* ´¹Ö±µ¼º½²Ëµ¥ */.layui-nav-tree{width: 200px; padding: 0;}
 .layui-nav-tree .layui-nav-item{display: block; width: 100%; line-height: 45px;}
 .layui-nav-tree .layui-nav-item a{height: 45px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
 .layui-nav-tree .layui-nav-item a:hover{background-color: #4E5465;}
@@ -703,9 +703,9 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 .layui-nav-itemed .layui-nav-more{top: 14px;}
 .layui-nav-itemed .layui-nav-child{display: block; padding: 0; background-color: rgba(0,0,0,.3) !important;} 
 
-/* ä¾§è¾¹ */.layui-nav-side{position: fixed; top: 0; bottom: 0; left: 0; overflow-x: hidden; z-index: 999;}
+/* ²à±ß */.layui-nav-side{position: fixed; top: 0; bottom: 0; left: 0; overflow-x: hidden; z-index: 999;}
 
-/* å¯¼èˆªä¸»é¢˜è‰² */.layui-bg-blue .layui-nav-bar,
+/* µ¼º½Ö÷ÌâÉ« */.layui-bg-blue .layui-nav-bar,
 .layui-bg-blue .layui-this:after,
 .layui-bg-blue .layui-nav-itemed:after{background-color: #93D1FF;}
 .layui-bg-blue .layui-nav-child dd.layui-this{background-color: #1E9FFF;}
@@ -714,7 +714,7 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 .layui-bg-blue .layui-nav-itemed>a{background-color: #007DDB !important;}
 
 
-/** é¢åŒ…å±‘ **/
+/** Ãæ°üĞ¼ **/
 .layui-breadcrumb{visibility: hidden; font-size: 0;}
 .layui-breadcrumb a{padding-right: 8px; line-height: 22px; font-size: 14px; color: #333 !important;}
 .layui-breadcrumb a:hover{color: #01AAED !important;}
@@ -722,7 +722,7 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 .layui-breadcrumb a cite{ color: #666; cursor: text; font-style: normal;}
 .layui-breadcrumb a span{padding-left: 8px; font-family: Sim sun;}
 
-/** Tabé€‰é¡¹å¡ **/
+/** TabÑ¡Ïî¿¨ **/
 .layui-tab{margin: 10px 0; text-align: left !important;}
 .layui-tab[overflow]>.layui-tab-title{overflow: hidden;}
 .layui-tab-title{position: relative; left: 0; height: 40px; white-space: nowrap; font-size: 0; border-bottom: 1px solid #e2e2e2; transition: all .2s; -webkit-transition: all .2s;}
@@ -742,15 +742,15 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 
 .layui-tab-content{padding: 10px;}
 
-/* Tabå…³é—­ */.layui-tab-title li .layui-tab-close{position: relative; display: inline-block; width: 18px; height: 18px; line-height: 20px; margin-left: 8px; top: 1px; text-align: center; font-size: 14px; color: #c2c2c2; transition: all .2s; -webkit-transition: all .2s;}
+/* Tab¹Ø±Õ */.layui-tab-title li .layui-tab-close{position: relative; display: inline-block; width: 18px; height: 18px; line-height: 20px; margin-left: 8px; top: 1px; text-align: center; font-size: 14px; color: #c2c2c2; transition: all .2s; -webkit-transition: all .2s;}
 .layui-tab-title li .layui-tab-close:hover{border-radius: 2px; background-color: #FF5722; color: #fff;}
 
-/* Tabç®€æ´é£æ ¼ */.layui-tab-brief > .layui-tab-title .layui-this{color: #009688;}
+/* Tab¼ò½à·ç¸ñ */.layui-tab-brief > .layui-tab-title .layui-this{color: #009688;}
 .layui-tab-brief > .layui-tab-title .layui-this:after
 ,.layui-tab-brief > .layui-tab-more li.layui-this:after{border: none; border-radius: 0; border-bottom: 2px solid #5FB878;}
 .layui-tab-brief[overflow] > .layui-tab-title .layui-this:after{top: -1px;}
 
-/* Tabå¡ç‰‡é£æ ¼ */.layui-tab-card{border: 1px solid #e2e2e2; border-radius: 2px; box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);}
+/* Tab¿¨Æ¬·ç¸ñ */.layui-tab-card{border: 1px solid #e2e2e2; border-radius: 2px; box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);}
 .layui-tab-card > .layui-tab-title{ background-color: #f2f2f2;}
 .layui-tab-card > .layui-tab-title li{margin-right: -1px; margin-left: -1px;}
 .layui-tab-card > .layui-tab-title .layui-this{background-color: #fff;     }
@@ -759,7 +759,7 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 .layui-tab-card > .layui-tab-more .layui-this{background: none; color: #5FB878;}
 .layui-tab-card > .layui-tab-more .layui-this:after{border: none;}
 
-/* æ—¶é—´çº¿ */
+/* Ê±¼äÏß */
 .layui-timeline{padding-left: 5px;}
 .layui-timeline-item{position: relative; padding-bottom: 20px;}
 .layui-timeline-axis{position: absolute; left: -5px; top: 0; z-index: 10; width: 20px; height: 20px; line-height: 20px; background-color: #fff; color: #5FB878; border-radius: 50%; text-align: center; cursor: pointer;}
@@ -770,7 +770,7 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 .layui-timeline-content{padding-left: 25px;;}
 .layui-timeline-title{position: relative; margin-bottom: 10px;}
 
-/* å°å¾½ç«  */
+/* Ğ¡»ÕÕÂ */
 .layui-badge,
 .layui-badge-dot,
 .layui-badge-rim{position:relative; display: inline-block; font-size: 12px; background-color: #FF5722; color: #fff;}
@@ -785,7 +785,7 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 .layui-tab-title .layui-badge,
 .layui-tab-title .layui-badge-dot{left: 5px; top: -2px;}
 
-/* carousel è½®æ’­ */
+/* carousel ÂÖ²¥ */
 .layui-carousel{position: relative; left: 0; top: 0; background-color: #f2f2f2;}
 .layui-carousel>*[carousel-item]{position: relative; width: 100%; height: 100%; overflow: hidden;}
 .layui-carousel>*[carousel-item]:before{position: absolute; content: '\e63d'; left: 50%; top: 50%; width: 100px; line-height: 20px; margin: -10px 0 0 -50px; text-align: center; color: #999; font-family:"layui-icon" !important; font-size: 20px; font-style:normal; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;}
@@ -820,7 +820,7 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 .layui-carousel>*[carousel-item]>.layui-this.layui-carousel-left{left: -100%;}
 .layui-carousel>*[carousel-item]>.layui-this.layui-carousel-right{left: 100%;}
 
-/* ä¸Šä¸‹åˆ‡æ¢ */.layui-carousel[lay-anim="updown"] .layui-carousel-arrow{left: 50%!important; top: 20px; margin: 0 0 0 -18px;}
+/* ÉÏÏÂÇĞ»» */.layui-carousel[lay-anim="updown"] .layui-carousel-arrow{left: 50%!important; top: 20px; margin: 0 0 0 -18px;}
 .layui-carousel[lay-anim="updown"] .layui-carousel-arrow[lay-type="add"]{top: auto!important; bottom: 20px;}
 .layui-carousel[lay-anim="updown"] .layui-carousel-ind{position: absolute; top: 50%; right: 20px; width: auto; height: auto;}
 .layui-carousel[lay-anim="updown"] .layui-carousel-ind ul{padding: 3px 5px;}
@@ -835,7 +835,7 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 .layui-carousel[lay-anim="updown"]>*[carousel-item]>.layui-this.layui-carousel-left{top: -100%;}
 .layui-carousel[lay-anim="updown"]>*[carousel-item]>.layui-this.layui-carousel-right{top: 100%;}
 
-/* æ¸æ˜¾åˆ‡æ¢ */.layui-carousel[lay-anim="fade"]>*[carousel-item]>*{left: 0!important;}
+/* ½¥ÏÔÇĞ»» */.layui-carousel[lay-anim="fade"]>*[carousel-item]>*{left: 0!important;}
 .layui-carousel[lay-anim="fade"]>*[carousel-item]>.layui-carousel-prev,
 .layui-carousel[lay-anim="fade"]>*[carousel-item]>.layui-carousel-next{opacity: 0;}
 .layui-carousel[lay-anim="fade"]>*[carousel-item]>.layui-carousel-prev.layui-carousel-right,
@@ -851,7 +851,7 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 .layui-fixbar li:active{opacity: 1;}
 .layui-fixbar .layui-fixbar-top{display: none; font-size: 40px;}
 
-/** è¡¨æƒ…é¢æ¿ **/
+/** ±íÇéÃæ°å **/
 body .layui-util-face{border: none; background: none;}
 body .layui-util-face  .layui-layer-content{padding:0; background-color:#fff; color:#666; box-shadow:none}
 .layui-util-face .layui-layer-TipsG{display:none;}
@@ -859,12 +859,12 @@ body .layui-util-face  .layui-layer-content{padding:0; background-color:#fff; co
 .layui-util-face ul li{cursor: pointer; float: left; border: 1px solid #e8e8e8; height: 22px; width: 26px; overflow: hidden; margin: -1px 0 0 -1px; padding: 4px 2px; text-align: center;}
 .layui-util-face ul li:hover{position: relative; z-index: 2; border: 1px solid #eb7350; background: #fff9ec;}
 
-/** åŠ¨ç”» **/
+/** ¶¯»­ **/
 .layui-anim{-webkit-animation-duration: 0.3s; animation-duration: 0.3s; -webkit-animation-fill-mode: both; animation-fill-mode: both;}
 .layui-anim.layui-icon{display: inline-block;}
 .layui-anim-loop{-webkit-animation-iteration-count: infinite; animation-iteration-count: infinite;}
 
-@-webkit-keyframes layui-rotate{ /* å¾ªç¯æ—‹è½¬ */
+@-webkit-keyframes layui-rotate{ /* Ñ­»·Ğı×ª */
   from {-webkit-transform: rotate(0deg);}
   to {-webkit-transform: rotate(360deg);}
 }
@@ -874,7 +874,7 @@ body .layui-util-face  .layui-layer-content{padding:0; background-color:#fff; co
 }
 .layui-anim-rotate{-webkit-animation-name: layui-rotate; animation-name: layui-rotate; -webkit-animation-duration: 1s; animation-duration: 1s;  -webkit-animation-timing-function: linear; animation-timing-function: linear;}
 
-@-webkit-keyframes layui-up{ /* ä»æœ€åº•éƒ¨å¾€ä¸Šæ»‘å…¥ */
+@-webkit-keyframes layui-up{ /* ´Ó×îµ×²¿ÍùÉÏ»¬Èë */
   from {-webkit-transform: translate3d(0, 100%, 0); opacity: 0.3;}
   to {-webkit-transform: translate3d(0, 0, 0);  opacity: 1;}
 }
@@ -884,7 +884,7 @@ body .layui-util-face  .layui-layer-content{padding:0; background-color:#fff; co
 }
 .layui-anim-up{-webkit-animation-name: layui-up; animation-name: layui-up;}
 
-@-webkit-keyframes layui-upbit{ /* å¾®å¾®å¾€ä¸Šæ»‘å…¥ */
+@-webkit-keyframes layui-upbit{ /* Î¢Î¢ÍùÉÏ»¬Èë */
   from {-webkit-transform: translate3d(0, 30px, 0); opacity: 0.3;}
   to {-webkit-transform: translate3d(0, 0, 0);  opacity: 1;}
 }
@@ -894,7 +894,7 @@ body .layui-util-face  .layui-layer-content{padding:0; background-color:#fff; co
 }
 .layui-anim-upbit{-webkit-animation-name: layui-upbit; animation-name: layui-upbit;}
 
-@-webkit-keyframes layui-scale { /* æ”¾å¤§ */
+@-webkit-keyframes layui-scale { /* ·Å´ó */
   0% {opacity: 0.3; -webkit-transform: scale(.5);}
   100% {opacity: 1; -webkit-transform: scale(1);}
 }
@@ -904,7 +904,7 @@ body .layui-util-face  .layui-layer-content{padding:0; background-color:#fff; co
 }
 .layui-anim-scale{-webkit-animation-name: layui-scale; animation-name: layui-scale}
 
-@-webkit-keyframes layui-scale-spring { /* å¼¹ç°§å¼æ”¾å¤§ */
+@-webkit-keyframes layui-scale-spring { /* µ¯»ÉÊ½·Å´ó */
   0% {opacity: 0.5; -webkit-transform: scale(.5);}
   80% {opacity: 0.8; -webkit-transform: scale(1.1);}
   100% {opacity: 1; -webkit-transform: scale(1);}
@@ -916,7 +916,7 @@ body .layui-util-face  .layui-layer-content{padding:0; background-color:#fff; co
 }
 .layui-anim-scaleSpring{-webkit-animation-name: layui-scale-spring; animation-name: layui-scale-spring}
 
-@-webkit-keyframes layui-fadein { /* æ¸ç° */
+@-webkit-keyframes layui-fadein { /* ½¥ÏÖ */
   0% {opacity: 0;}
   100% {opacity: 1;}
 }
@@ -926,7 +926,7 @@ body .layui-util-face  .layui-layer-content{padding:0; background-color:#fff; co
 }
 .layui-anim-fadein{-webkit-animation-name: layui-fadein; animation-name: layui-fadein}
 
-@-webkit-keyframes layui-fadeout { /* æ¸éš */
+@-webkit-keyframes layui-fadeout { /* ½¥Òş */
   0% {opacity: 1;}
   100% {opacity: 0;}
 }
