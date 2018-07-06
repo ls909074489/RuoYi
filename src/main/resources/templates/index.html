@@ -14,7 +14,7 @@
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
     <link th:href="@{/css/font-awesome.css}" rel="stylesheet"/>
     <link th:href="@{/css/animate.css}" rel="stylesheet"/>
-    <link th:href="@{/css/style.css?v=17}" rel="stylesheet"/>
+    <link th:href="@{/css/style.css?v=30}" rel="stylesheet"/>
     <link th:href="@{/ruoyi/css/ry-ui.min.css?v=2.0.0}" rel="stylesheet"/>
     <style type="text/css">
         .nav > li:hover .dropdown-menu {display: block;}
@@ -30,12 +30,18 @@
         </div>
         <div class="sidebar-collapse">
             <ul class="nav" id="side-menu">
-                <li class="nav-header" style="background-color: #f6f6f6;">
-                    <div class="dropdown profile-element"> <span>
-                         <img th:src="(${user.avatar} == '') ? '/img/profile.jpg' : '/profile/' + ${user.avatar}" alt="image" class="img-circle" height="60" width="60"/></span>
+                <li class="nav-header" style="">
+                   <div class="dropdown profile-element"> 
+                    	<span>
+                         	<img th:src="(${user.avatar} == '') ? '/img/profile.jpg' : '/profile/' + ${user.avatar}" 
+                         		alt="image" class="img-circle" height="60" width="60"/>
+                         </span>
                          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                          <span class="clear"><span class="block m-t-xs"><strong class="font-bold">[[${user.userName}]]</strong></span>
-                         <span class="text-muted text-xs block"><span>[[${user.dept.deptName}]]</span> <b class="caret"></b></span> </span> </a>
+                          	<span class="clear">
+                          		<span class="block m-t-xs"><strong class="font-bold">[[${user.userName}]]</strong></span>
+                         		<span class="text-muted text-xs block"><span>[[${user.dept.deptName}]]</span> <b class="caret"></b></span> 
+                         	</span> 
+                         </a>
                          <ul class="dropdown-menu animated fadeInRight m-t-xs">
                              <li><a class="menuItem" th:href="@{/system/user/profile}">个人信息</a></li>
                              <li class="divider"></li>
