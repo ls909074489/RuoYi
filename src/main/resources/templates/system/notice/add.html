@@ -2,8 +2,8 @@
 <html  lang="zh" xmlns:th="http://www.thymeleaf.org">
 <meta charset="utf-8">
 <head th:include="include :: header"></head>
-<link th:href="@{/ajax/libs/summernote/summernote.css}" rel="stylesheet"/>
-<link th:href="@{/ajax/libs/summernote/summernote-bs3.css}" rel="stylesheet"/>
+<link th:href="@{/ajax/libs/summernote/summernote.css?v=2}" rel="stylesheet"/>
+<link th:href="@{/ajax/libs/summernote/summernote-bs3.css?v=25}" rel="stylesheet"/>
 <body class="white-bg">
     <div class="wrapper wrapper-content animated fadeInRight ibox-content">
         <form class="form-horizontal m" id="form-notice-add">
@@ -25,7 +25,7 @@
 				<label class="col-sm-3 control-label">公告内容：</label>
 				<div class="col-sm-8">
 				    <input id="noticeContent" name="noticeContent" type="hidden">
-				    <div class="summernote"></div>
+				    <div class="summernote" id="summernote"></div>
 				</div>
 			</div>
 			<div class="form-group">
@@ -46,14 +46,53 @@
 		</form>
 	</div>
     <div th:include="include::footer"></div>
-    <script th:src="@{/ajax/libs/summernote/summernote.min.js}"></script>
-    <script th:src="@{/ajax/libs/summernote/summernote-zh-CN.js}"></script>
+    <script th:src="@{/ajax/libs/summernote/summernote.min.js?v=343}"></script>
+    <script th:src="@{/ajax/libs/summernote/lang/summernote-zh-CN.js}"></script>
     <script type="text/javascript">
     
-	    $('.summernote').summernote({
+/* 	    $('.summernote').summernote({
 			height : '220px',
 			lang : 'zh-CN'
+		}); */
+		
+		console.info("========="+ctx);
+		
+		$('#summernote').summernote({
+		    height: ($(window).height() - 300),
+		    callbacks: {
+		        onImageUpload: function(files) {
+		            uploadImage(files);
+		        }
+		    }
 		});
+		
+		function uploadImage(files){
+			console.info(files);
+			var data = new FormData();
+	        data.append("file", files[0]);
+	        $.ajax({
+	            data : data,
+	            type : "POST",
+	            url : ctx+"common/attachment/uploadFile", //图片上传出来的url，返回的是图片上传后的路径，http格式
+	            cache : false,
+	            contentType : false,
+	            processData : false,
+	            dataType : "json",
+	            success: function(data) {//data是返回的hash,key之类的值，key是定义的文件名
+	            	console.info(data);
+	            	//"http://www.runoob.com/wp-content/uploads/2015/09/web_architecture.jpg"
+	            	console.info(data.flag==true);
+	            	if(data.flag){
+	            		$('#summernote').summernote('insertImage', ctx+data.msg);
+	            	}else{
+	            		alert("fail");
+	            	}
+	            },
+	            error:function(){
+	                alert("上传失败");
+	            }
+	        });
+		}
 	    
 		var prefix = ctx + "system/notice"
 		$("#form-notice-add").validate({
@@ -63,8 +102,10 @@
 				}
 			},
 			submitHandler: function(form) {
-				var sHTML = $('.summernote').code();
+				//var sHTML = $('.summernote').code();
+				var sHTML = $('.summernote').summernote('code');//$('.click2edit').summernote('destroy');
 				$("#noticeContent").val(sHTML);
+				console.info(sHTML);
 				$.operate.save(prefix + "/save", $('#form-notice-add').serialize());
 			}
 		});
