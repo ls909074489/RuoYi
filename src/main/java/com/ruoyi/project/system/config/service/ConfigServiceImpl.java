@@ -124,7 +124,7 @@ public class ConfigServiceImpl implements IConfigService
     @Override
     public int deleteConfigByIds(String ids)
     {
-        return configMapper.deleteConfigByIds(Convert.toIntArray(ids));
+        return configMapper.deleteConfigByIds(Convert.toStrArray(ids));
     }
 
     /**

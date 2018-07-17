@@ -166,21 +166,16 @@ public class JobServiceImpl implements IJobService
         }
         return rows;
     }
-
+    
     /**
      * 立即运行任务
      * 
      * @param job 调度信息
      */
     @Override
-    public int triggerJob(Job job)
+    public int run(Job job)
     {
-        int rows = jobMapper.updateJob(job);
-        if (rows > 0)
-        {
-            ScheduleUtils.run(scheduler, job);
-        }
-        return rows;
+        return ScheduleUtils.run(scheduler, selectJobById(job.getJobId()));
     }
 
     /**

@@ -31,5 +31,5 @@ public interface LogininforMapper
      * @param ids 需要删除的数据
      * @return
      */
-    public int deleteLogininforByIds(Long[] ids);
+    public int deleteLogininforByIds(String[] ids);
 }

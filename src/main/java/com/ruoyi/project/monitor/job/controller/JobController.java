@@ -100,6 +100,22 @@ public class JobController extends BaseController
         }
         return error();
     }
+    
+    /**
+     * 任务调度立即执行一次
+     */
+    @Log(title = "定时任务", action = BusinessType.UPDATE)
+    @RequiresPermissions("monitor:job:changeStatus")
+    @PostMapping("/run")
+    @ResponseBody
+    public AjaxResult run(Job job)
+    {
+        if (jobService.run(job) > 0)
+        {
+            return success();
+        }
+        return error();
+    }
 
     /**
      * 新增调度

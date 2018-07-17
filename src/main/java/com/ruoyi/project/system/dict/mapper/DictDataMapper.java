@@ -34,7 +34,15 @@ public interface DictDataMapper
      * @return 字典数据
      */
     public DictData selectDictDataById(Long dictCode);
-
+    
+    /**
+     * 查询字典数据
+     * 
+     * @param dictType 字典类型
+     * @return 字典数据
+     */
+    public int countDictDataByType(String dictType);
+    
     /**
      * 通过字典ID删除字典数据信息
      * 
@@ -49,7 +57,7 @@ public interface DictDataMapper
      * @param ids 需要删除的数据
      * @return 结果
      */
-    public int deleteDictDataByIds(Long[] ids);
+    public int deleteDictDataByIds(String[] ids);
 
     /**
      * 新增字典数据信息

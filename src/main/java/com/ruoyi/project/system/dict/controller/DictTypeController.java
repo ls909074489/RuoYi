@@ -113,12 +113,15 @@ public class DictTypeController extends BaseController
     @ResponseBody
     public AjaxResult remove(String ids)
     {
-        int rows = dictTypeService.deleteDictTypeByIds(ids);
-        if (rows > 0)
+        try
         {
+            dictTypeService.deleteDictTypeByIds(ids);
             return success();
         }
-        return error();
+        catch (Exception e)
+        {
+            return error(e.getMessage());
+        }
     }
 
     /**
@@ -129,7 +132,9 @@ public class DictTypeController extends BaseController
     public String detail(@PathVariable("dictId") Long dictId, Model model)
     {
         DictType dict = dictTypeService.selectDictTypeById(dictId);
+        List<DictType> dictTypeList = dictTypeService.selectDictTypeAll();
         model.addAttribute("dict", dict);
+        model.addAttribute("dictList", dictTypeList);
         return "system/dict/data/data";
     }
 

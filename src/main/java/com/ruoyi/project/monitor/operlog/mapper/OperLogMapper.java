@@ -31,7 +31,7 @@ public interface OperLogMapper
      * @param ids 需要删除的数据
      * @return 结果
      */
-    public int deleteOperLogByIds(Long[] ids);
+    public int deleteOperLogByIds(String[] ids);
     
     /**
      * 查询操作日志详细

@@ -48,6 +48,6 @@ public interface NoticeMapper
      * @param noticeIds 需要删除的数据ID
      * @return 结果
      */
-    public int deleteNoticeByIds(Integer[] noticeIds);
+    public int deleteNoticeByIds(String[] noticeIds);
 
 }

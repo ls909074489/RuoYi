@@ -77,7 +77,7 @@ public class DictDataServiceImpl implements IDictDataService
     @Override
     public int deleteDictDataByIds(String ids)
     {
-        return dictDataMapper.deleteDictDataByIds(Convert.toLongArray(ids));
+        return dictDataMapper.deleteDictDataByIds(Convert.toStrArray(ids));
     }
 
     /**

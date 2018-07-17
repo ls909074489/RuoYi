@@ -8,15 +8,13 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
 import com.ruoyi.framework.web.controller.BaseController;
-import com.ruoyi.framework.web.domain.AjaxResult;
 
 /**
  * 图片验证码（支持算术形式）
@@ -37,7 +35,7 @@ public class CaptchaController extends BaseController
     /**
      * 验证码生成
      */
-    @RequestMapping(value = "/captchaImage")
+    @GetMapping(value = "/captchaImage")
     public ModelAndView getKaptchaImage(HttpServletRequest request, HttpServletResponse response)
     {
         ServletOutputStream out = null;
@@ -92,34 +90,4 @@ public class CaptchaController extends BaseController
         }
         return null;
     }
-
-    /**
-     * @Desc 验证码验证
-     * @param kaptchaCode
-     * @param request
-     * @return
-     * @author YY<2017年10月31日>
-     */
-    @RequestMapping("/captchaVerify")
-    @ResponseBody
-    public AjaxResult captchaVerify(String kaptchaCode, HttpServletRequest request)
-    {
-        try
-        {
-            HttpSession session = request.getSession();
-            Object obj = session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
-            String code = String.valueOf(obj != null ? obj : "");
-            if (StringUtils.isNotBlank(kaptchaCode) && kaptchaCode.equalsIgnoreCase(code))
-            {
-                return success("验证码正确");
-            }
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-            return error("系统错误：" + e.getMessage());
-        }
-        return error("验证码错误");
-    }
-
 }

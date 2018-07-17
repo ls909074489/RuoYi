@@ -8,6 +8,7 @@ import com.ruoyi.common.support.Convert;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.project.system.dict.domain.DictType;
+import com.ruoyi.project.system.dict.mapper.DictDataMapper;
 import com.ruoyi.project.system.dict.mapper.DictTypeMapper;
 
 /**
@@ -21,6 +22,9 @@ public class DictTypeServiceImpl implements IDictTypeService
     @Autowired
     private DictTypeMapper dictTypeMapper;
 
+    @Autowired
+    private DictDataMapper dictDataMapper;
+
     /**
      * 根据条件分页查询字典类型
      * 
@@ -31,6 +35,17 @@ public class DictTypeServiceImpl implements IDictTypeService
     public List<DictType> selectDictTypeList(DictType dictType)
     {
         return dictTypeMapper.selectDictTypeList(dictType);
+    }
+
+    /**
+     * 根据所有字典类型
+     * 
+     * @return 字典类型集合信息
+     */
+    @Override
+    public List<DictType> selectDictTypeAll()
+    {
+        return dictTypeMapper.selectDictTypeAll();
     }
 
     /**
@@ -64,9 +79,19 @@ public class DictTypeServiceImpl implements IDictTypeService
      * @return 结果
      */
     @Override
-    public int deleteDictTypeByIds(String ids)
+    public int deleteDictTypeByIds(String ids) throws Exception
     {
-        return dictTypeMapper.deleteDictTypeByIds(Convert.toLongArray(ids));
+        Long[] dictIds = Convert.toLongArray(ids);
+        for (Long dictId : dictIds)
+        {
+            DictType dictType = selectDictTypeById(dictId);
+            if (dictDataMapper.countDictDataByType(dictType.getDictType()) > 0)
+            {
+                throw new Exception(String.format("%1$s已分配,不能删除", dictType.getDictName()));
+            }
+        }
+
+        return dictTypeMapper.deleteDictTypeByIds(dictIds);
     }
 
     /**

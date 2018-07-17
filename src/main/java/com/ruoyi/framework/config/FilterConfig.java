@@ -1,12 +1,10 @@
 package com.ruoyi.framework.config;
 
 import java.util.Map;
-
 import javax.servlet.DispatcherType;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import com.google.common.collect.Maps;
 import com.ruoyi.common.xss.XssFilter;
 

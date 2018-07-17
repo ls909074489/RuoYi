@@ -51,6 +51,6 @@ public class LogininforServiceImpl implements ILogininforService
     @Override
     public int deleteLogininforByIds(String ids)
     {
-        return logininforMapper.deleteLogininforByIds(Convert.toLongArray(ids));
+        return logininforMapper.deleteLogininforByIds(Convert.toStrArray(ids));
     }
 }

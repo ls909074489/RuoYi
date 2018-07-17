@@ -17,6 +17,13 @@ public interface IDictTypeService
      * @return 字典类型集合信息
      */
     public List<DictType> selectDictTypeList(DictType dictType);
+    
+    /**
+     * 根据所有字典类型
+     * 
+     * @return 字典类型集合信息
+     */
+    public List<DictType> selectDictTypeAll();
 
     /**
      * 根据字典类型ID查询信息
@@ -41,7 +48,7 @@ public interface IDictTypeService
      * @param ids 需要删除的数据
      * @return 结果
      */
-    public int deleteDictTypeByIds(String ids);
+    public int deleteDictTypeByIds(String ids)  throws Exception;
 
     /**
      * 保存字典类型信息

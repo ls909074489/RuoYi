@@ -66,14 +66,14 @@ public interface IJobService
      * @return 结果
      */
     public int changeStatus(Job job);
-
+    
     /**
      * 立即运行任务
      * 
      * @param job 调度信息
      * @return 结果
      */
-    public int triggerJob(Job job);
+    public int run(Job job);
 
     /**
      * 新增任务表达式

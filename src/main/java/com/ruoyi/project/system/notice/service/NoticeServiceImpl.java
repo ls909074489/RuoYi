@@ -105,7 +105,7 @@ public class NoticeServiceImpl implements INoticeService
     @Override
     public int deleteNoticeByIds(String ids)
     {
-        return noticeMapper.deleteNoticeByIds(Convert.toIntArray(ids));
+        return noticeMapper.deleteNoticeByIds(Convert.toStrArray(ids));
     }
 
 }

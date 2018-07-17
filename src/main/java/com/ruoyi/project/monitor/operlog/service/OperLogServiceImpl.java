@@ -50,7 +50,7 @@ public class OperLogServiceImpl implements IOperLogService
     @Override
     public int deleteOperLogByIds(String ids)
     {
-        return operLogMapper.deleteOperLogByIds(Convert.toLongArray(ids));
+        return operLogMapper.deleteOperLogByIds(Convert.toStrArray(ids));
     }
 
     /**

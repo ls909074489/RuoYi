@@ -36,6 +36,7 @@ public class NoticeController extends BaseController
     @GetMapping()
     public String notice()
     {
+    	System.out.println("bbbbbbbbbbbbbbbbbbbb");
         return prefix + "/notice";
     }
 
@@ -74,14 +75,6 @@ public class NoticeController extends BaseController
         Notice notice = noticeService.selectNoticeById(noticeId);
         model.addAttribute("notice", notice);
         return prefix + "/edit";
-    }
-    
-    @GetMapping("/view/{noticeId}")
-    public String view(@PathVariable("noticeId") Integer noticeId, Model model)
-    {
-        Notice notice = noticeService.selectNoticeById(noticeId);
-        model.addAttribute("notice", notice);
-        return prefix + "/view";
     }
 
     /**

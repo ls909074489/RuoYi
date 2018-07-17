@@ -41,7 +41,7 @@ public interface JobLogMapper
      * @param ids 需要删除的数据ID
      * @return 结果
      */
-    public int deleteJobLogByIds(Long[] ids);
+    public int deleteJobLogByIds(String[] ids);
 
     /**
      * 删除任务日志

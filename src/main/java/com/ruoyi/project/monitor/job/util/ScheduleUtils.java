@@ -24,7 +24,7 @@ import com.ruoyi.project.monitor.job.domain.Job;
 public class ScheduleUtils
 {
     private static final Logger log = LoggerFactory.getLogger(ScheduleUtils.class);
-    
+
     private final static String JOB_NAME = "TASK_";
 
     /**
@@ -73,7 +73,8 @@ public class ScheduleUtils
             CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(job.getCronExpression());
 
             // 按新的cronExpression表达式构建一个新的trigger
-            CronTrigger trigger = TriggerBuilder.newTrigger().withIdentity(getTriggerKey(job.getJobId())).withSchedule(scheduleBuilder).build();
+            CronTrigger trigger = TriggerBuilder.newTrigger().withIdentity(getTriggerKey(job.getJobId()))
+                    .withSchedule(scheduleBuilder).build();
 
             // 放入参数，运行时的方法可以获取
             jobDetail.getJobDataMap().put(ScheduleConstants.JOB_PARAM_KEY, job);
@@ -130,8 +131,9 @@ public class ScheduleUtils
     /**
      * 立即执行任务
      */
-    public static void run(Scheduler scheduler, Job job)
+    public static int run(Scheduler scheduler, Job job)
     {
+        int rows = 0;
         try
         {
             // 参数
@@ -139,11 +141,13 @@ public class ScheduleUtils
             dataMap.put(ScheduleConstants.JOB_PARAM_KEY, job);
 
             scheduler.triggerJob(getJobKey(job.getJobId()), dataMap);
+            rows = 1;
         }
         catch (SchedulerException e)
         {
             log.error(e.getMessage());
         }
+        return rows;
     }
 
     /**

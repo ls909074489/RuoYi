@@ -63,7 +63,7 @@ public class JobLogServiceImpl implements IJobLogService
     @Override
     public int deleteJobLogByIds(String ids)
     {
-        return jobLogMapper.deleteJobLogByIds(Convert.toLongArray(ids));
+        return jobLogMapper.deleteJobLogByIds(Convert.toStrArray(ids));
     }
 
     /**

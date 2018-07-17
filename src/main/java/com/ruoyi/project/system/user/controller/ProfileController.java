@@ -61,7 +61,7 @@ public class ProfileController extends BaseController
         return prefix + "/profile";
     }
 
-    @RequestMapping("/checkPassword")
+    @GetMapping("/checkPassword")
     @ResponseBody
     public boolean checkPassword(String password)
     {
