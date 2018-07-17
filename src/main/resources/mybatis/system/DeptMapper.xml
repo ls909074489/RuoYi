@@ -19,10 +19,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="updateBy"   column="update_by"   />
 		<result property="updateTime" column="update_time" />
 	</resultMap>
+	
+	<sql id="selectDeptVo">
+        select t.dept_id, t.parent_id, t.dept_name, t.order_num, t.leader, t.phone, t.email, t.status, t.create_by, t.create_time from sys_dept t
+    </sql>
 
 	<select id="selectDeptAll" resultMap="DeptResult">
-		select dept_id, parent_id, dept_name, order_num, leader, phone, email, status, create_by, create_time from sys_dept
+		<include refid="selectDeptVo"/>
 	</select>
+	
+	<select id="selectDeptList" parameterType="Dept" resultMap="DeptResult">
+        <include refid="selectDeptVo"/>
+        <where>
+			<if test="deptName != null and deptName != ''">
+				AND dept_name like concat('%', #{deptName}, '%')
+			</if>
+			<if test="status != null and status != ''">
+				AND status = #{status}
+			</if>
+		</where>
+    </select>
 	
 	<select id="checkDeptExistUser" parameterType="Long" resultType="int">
 		select count(*) from sys_user where dept_id = #{deptId}
@@ -37,7 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="checkDeptNameUnique" parameterType="String" resultMap="DeptResult">
-		select t.dept_id, t.parent_id, t.dept_name, t.order_num, t.leader, t.phone, t.email, t.status from sys_dept t
+	    <include refid="selectDeptVo"/>
 		where dept_name=#{deptName}
 	</select>
 

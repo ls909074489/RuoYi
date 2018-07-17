@@ -3,12 +3,12 @@
 	xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <meta charset="utf-8">
 <head th:include="include :: header"></head>
-<body class="gray-bgxxx">
+<body class="gray-bg">
 	
 	<div class="container-div">
 		<div class="row">
 			<div class="col-sm-12 select-info">
-				<form id="operlog-form">
+				<form id="role-form">
 					<div class="select-list gd">
 						<ul>
 							<li>
@@ -41,7 +41,7 @@
 		        </a>
 	        </div>
 	        
-	        <div class="col-sm-12 select-info order-table">
+	        <div class="col-sm-12 select-info table-striped">
 			    <table id="bootstrap-table" data-mobile-responsive="true"></table>
 			</div>
 		</div>
@@ -72,15 +72,18 @@
 		        },
 		        {
 		            field: 'roleName',
-		            title: '角色名称'
+		            title: '角色名称',
+		            sortable: true
 		        },
 		        {
 		            field: 'roleKey',
-		            title: '权限字符'
+		            title: '权限字符',
+		            sortable: true
 		        },
 		        {
 		            field: 'roleSort',
-		            title: '显示顺序'
+		            title: '显示顺序',
+		            sortable: true
 		        },
 		        {
 		            field: 'status',
@@ -95,7 +98,7 @@
 		            }
 		        },
 		        {
-		            field: 'createDateTimeStr',
+		            field: 'createTime',
 		            title: '创建时间'
 		        },
 		        {

@@ -21,6 +21,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="updateBy"       column="update_by"      />
 		<result property="remark"         column="remark"         />
 	</resultMap>
+	
+	<sql id="selectMenuVo">
+        select menu_id, menu_name, parent_id, order_num, url, menu_type, visible, perms, icon, create_by, create_time from sys_menu
+    </sql>
 
 	<select id="selectMenusByUserId" parameterType="Long" resultMap="MenuResult">
 		select distinct m.menu_id, m.parent_id, m.menu_name, m.url, m.perms , m.menu_type, m.icon, m.order_num, m.create_time
@@ -47,8 +51,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by m.parent_id, m.order_num
 	</select>
 	
+	<select id="selectMenuList" parameterType="Menu" resultMap="MenuResult">
+        <include refid="selectMenuVo"/>
+        <where>
+			<if test="menuName != null and menuName != ''">
+				AND menu_name like concat('%', #{menuName}, '%')
+			</if>
+			<if test="visible != null and visible != ''">
+				AND visible = #{visible}
+			</if>
+		</where>
+    </select>
+	
 	<select id="selectMenuAll" resultMap="MenuResult">
-		select menu_id, menu_name, parent_id, order_num, url, menu_type, visible, perms, icon, create_by, create_time from sys_menu
+		<include refid="selectMenuVo"/>
 	</select>
 	
 	<delete id="deleteMenuById" parameterType="Long">
@@ -67,8 +83,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="checkMenuNameUnique" parameterType="String" resultMap="MenuResult">
-		select t.menu_id, t.parent_id, t.menu_name, t.order_num, t.url, t.menu_type, t.visible, t.perms, t.icon, t.remark 
-		from sys_menu t where menu_name=#{menuName}
+		<include refid="selectMenuVo"/>
+		where menu_name=#{menuName}
 	</select>
 	
 	<update id="updateMenu" parameterType="Menu">

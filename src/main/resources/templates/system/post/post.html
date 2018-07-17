@@ -3,12 +3,12 @@
 	xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <meta charset="utf-8">
 <head th:include="include :: header"></head>
-<body class="gray-bgxxx">
+<body class="gray-bg">
 	
 	<div class="container-div">
 		<div class="row">
 			<div class="col-sm-12 select-info">
-				<form id="operlog-form">
+				<form id="post-form">
 					<div class="select-list gd">
 						<ul>
 							<li>
@@ -36,16 +36,13 @@
 				<button class="btn btn-outline btn-success btn-rounded" onclick="$.operate.add()" shiro:hasPermission="system:post:add">
 	                <i class="fa fa-plus"></i> 新增
 	            </button>
-	            <button class="btn btn-outline btn-primary btn-rounded" onclick="$.operate.add()" shiro:hasPermission="system:post:add">
-	                <i class="fa fa-refresh"></i> 刷新
-	            </button>
 				<button class="btn btn-outline btn-danger btn-rounded" onclick="$.operate.batRemove()" shiro:hasPermission="system:post:remove">
 		            <i class="fa fa-trash-o"></i> 删除
 		        </button>
 	        </div>
 	        
-	        <div class="col-sm-12 select-info bootstrap-table-div">
-			    <table id="bootstrap-table" data-mobile-responsive="true" class="table"></table>
+	        <div class="col-sm-12 select-info table-striped">
+			    <table id="bootstrap-table" data-mobile-responsive="true"></table>
 			</div>
 		</div>
 	</div>
@@ -75,15 +72,18 @@
 		        },
 		        {
 		            field: 'postCode',
-		            title: '岗位编码'
+		            title: '岗位编码',
+		            sortable: true
 		        },
 		        {
 		            field: 'postName',
-		            title: '岗位名称'
+		            title: '岗位名称',
+		            sortable: true
 		        },
 		        {
 		            field: 'postSort',
-		            title: '显示顺序'
+		            title: '显示顺序',
+		            sortable: true
 		        },
 		        {
 		            field: 'status',

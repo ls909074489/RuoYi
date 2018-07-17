@@ -17,8 +17,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="remark"       column="remark"         />
 	</resultMap>
 	
+	<sql id="selectRoleVo">
+        select role_id, role_name, role_key, role_sort, status, create_time, remark from sys_role
+    </sql>
+	
 	<select id="selectRoleList" parameterType="Role" resultMap="RoleResult">
-		select role_id, role_name, role_key, role_sort, status, create_time, remark from sys_role
+		<include refid="selectRoleVo"/>
 		<where>
 			<if test="roleName != null and roleName != ''">
 				AND role_name like concat('%', #{roleName}, '%')
@@ -41,18 +45,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="selectRolesAll" resultMap="RoleResult">
-		SELECT role_id, role_name, role_key, role_sort, status, create_time, remark FROM sys_role
+		<include refid="selectRoleVo"/>
 	</select>
 	
 	<select id="selectRoleById" parameterType="Long" resultMap="RoleResult">
-		select role_id, role_name, role_key, role_sort, status, create_time, remark
-		from sys_role u
-		where u.role_id = #{roleId}
+		<include refid="selectRoleVo"/>
+		where role_id = #{roleId}
 	</select>
 	
 	<select id="checkRoleNameUnique" parameterType="String" resultMap="RoleResult">
-		select role_id, role_name, role_key, role_sort, status, create_time 
-		from sys_role where role_name=#{roleName}
+		<include refid="selectRoleVo"/>
+		 where role_name=#{roleName}
 	</select>
 	
 	<delete id="deleteRoleById" parameterType="Long">

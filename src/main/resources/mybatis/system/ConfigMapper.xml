@@ -16,18 +16,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="updateTime"    column="update_time"    />
     </resultMap>
     
-    <select id="selectConfigById" parameterType="Integer" resultMap="ConfigResult">
+    <sql id="selectConfigVo">
         select config_id, config_name, config_key, config_value, config_type, create_by, create_time, update_by, update_time, remark from sys_config
+    </sql>
+    
+    <select id="selectConfigById" parameterType="Integer" resultMap="ConfigResult">
+        <include refid="selectConfigVo"/>
         where config_id = #{configId}
     </select>
     
     <select id="selectConfigByKey" parameterType="String" resultMap="ConfigResult">
-        select config_id, config_name, config_key, config_value, config_type, create_by, create_time, update_by, update_time, remark from sys_config
+        <include refid="selectConfigVo"/>
         where config_key = #{configKey}
     </select>
     
     <select id="selectConfigList" parameterType="Config" resultMap="ConfigResult">
-        select config_id, config_name, config_key, config_value, config_type, create_by, create_time, update_by, update_time, remark from sys_config
+        <include refid="selectConfigVo"/>
         <where>
 			<if test="configName != null and configName != ''">
 				AND config_name like concat('%', #{configName}, '%')
@@ -79,7 +83,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         delete from sys_config where config_id = #{value}
     </delete>
 	
-    <delete id="deleteConfigByIds" parameterType="Integer">
+    <delete id="deleteConfigByIds" parameterType="String">
         delete from sys_config where config_id in 
         <foreach item="configId" collection="array" open="(" separator="," close=")">
         	#{configId}

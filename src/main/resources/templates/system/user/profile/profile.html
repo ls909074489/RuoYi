@@ -12,10 +12,10 @@
     <link href="../static/css/main/style.min862f.css" th:href="@{/css/main/style.min862f.css}" rel="stylesheet"/>
 </head>
 
-<body class="gray-bgxx">
+<body class="gray-bg">
     <div class="wrapper wrapper-content">
         <div class="row animated fadeInRight">
-            <div class="col-sm-12">
+            <div class="col-sm-6">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>个人信息</h5>
@@ -36,6 +36,7 @@
 	                        <div class="col-sm-4">
 	                            <div class="text-center">
 	                                <img alt="image" class="img-circle m-t-xs img-responsive" th:src="(${user.avatar} == '') ? '/img/profile.jpg' : '/profile/' + ${user.avatar}">
+	                                <div class="m-t-xs font-bold">[[${user.loginIp}]]</div>
 	                            </div>
 	                        </div>
 	                        <div class="col-sm-8">
@@ -46,7 +47,6 @@
 	                            <p><i class="fa fa-transgender"></i> [[${user.sex}]]</p>
 	                            <p><i class="fa fa-envelope-o"></i> [[${user.email}]]</p>
 	                            <p><i class="fa fa-calendar"></i> [[${user.createTimeStr}]]</p>
-	                            <p><i class="fa fa-tree"></i> [[${user.loginIp}]]</p>
 	                        </div>
 	                        <div class="clearfix"></div>
 	                    </a>

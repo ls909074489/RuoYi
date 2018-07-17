@@ -19,8 +19,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="remark"         column="remark"          />
 	</resultMap>
 	
+	<sql id="selectJobVo">
+        select job_id, job_name, job_group, method_name, params, cron_expression, status, create_by, create_time, remark from sys_job
+    </sql>
+	
 	<select id="selectJobList" parameterType="Job" resultMap="JobResult">
-		select job_id, job_name, job_group, method_name, params, cron_expression, status, create_by, create_time, remark from sys_job
+		<include refid="selectJobVo"/>
 		<where>
 			<if test="jobName != null and jobName != ''">
 				AND job_name like concat('%', #{jobName}, '%')
@@ -35,13 +39,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="selectJobAll" resultMap="JobResult">
-		SELECT job_id, job_name, job_group, method_name, params, cron_expression, status, create_by, create_time FROM sys_job
+		<include refid="selectJobVo"/>
 	</select>
 	
 	<select id="selectJobById" parameterType="Long" resultMap="JobResult">
-		select job_id, job_name, job_group, method_name, params, cron_expression, status, create_by, create_time
-		from sys_job u
-		where u.job_id = #{jobId}
+		<include refid="selectJobVo"/>
+		where job_id = #{jobId}
 	</select>
 	
 	<delete id="deleteJobById" parameterType="Long">

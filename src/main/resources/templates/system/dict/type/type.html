@@ -3,12 +3,12 @@
 	xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <meta charset="utf-8">
 <head th:include="include :: header"></head>
-<body class="gray-bgxxx">
+<body class="gray-bg">
 	
 	<div class="container-div">
 		<div class="row">
 			<div class="col-sm-12 select-info">
-				<form id="operlog-form">
+				<form id="type-form">
 					<div class="select-list gd">
 						<ul>
 							<li>
@@ -41,7 +41,7 @@
 		        </a>
 	        </div>
 	        
-	        <div class="col-sm-12 select-info order-table">
+	        <div class="col-sm-12 select-info table-striped">
 			    <table id="bootstrap-table" data-mobile-responsive="true"></table>
 			</div>
 		</div>
@@ -74,11 +74,13 @@
 		        },
 		        {
 		            field: 'dictName',
-		            title: '字典名称'
+		            title: '字典名称',
+		            sortable: true
 		        },
 		        {
 		            field: 'dictType',
 		            title: '字典类型',
+		            sortable: true,
 		            formatter: function(value, row, index) {
 		                return '<a href="#" onclick="detail(\'' + row.dictId + '\')">' + value + '</a>';
 		            }

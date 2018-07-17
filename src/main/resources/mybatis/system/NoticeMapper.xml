@@ -17,13 +17,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="remark"         column="remark"          />
     </resultMap>
     
-    <select id="selectNoticeById" parameterType="Integer" resultMap="NoticeResult">
+    <sql id="selectNoticeVo">
         select notice_id, notice_title, notice_type, notice_content, status, create_by, create_time, update_by, update_time, remark from sys_notice
+    </sql>
+    
+    <select id="selectNoticeById" parameterType="Integer" resultMap="NoticeResult">
+        <include refid="selectNoticeVo"/>
         where notice_id = #{noticeId}
     </select>
     
     <select id="selectNoticeList" parameterType="Notice" resultMap="NoticeResult">
-        select notice_id, notice_title, notice_type, notice_content, status, create_by, create_time, update_by, update_time, remark from sys_notice
+        <include refid="selectNoticeVo"/>
         <where>
 			<if test="noticeTitle != null and noticeTitle != ''">
 				AND notice_title like concat('%', #{noticeTitle}, '%')
@@ -70,7 +74,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where notice_id = #{noticeId}
     </update>
 	
-    <delete id="deleteNoticeByIds" parameterType="Integer">
+    <delete id="deleteNoticeByIds" parameterType="String">
         delete from sys_notice where notice_id in 
         <foreach item="noticeId" collection="array" open="(" separator="," close=")">
             #{noticeId}

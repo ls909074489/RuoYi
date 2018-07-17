@@ -8,7 +8,7 @@
 	<div class="container-div">
 		<div class="row">
 			<div class="col-sm-12 select-info">
-				<form id="operlog-form">
+				<form id="job-form">
 					<div class="select-list gd">
 						<ul>
 							<li>
@@ -44,7 +44,7 @@
 		        </a>
 	        </div>
         
-	        <div class="col-sm-12 select-info order-table">
+	        <div class="col-sm-12 select-info table-striped">
 			    <table id="bootstrap-table" data-mobile-responsive="true"></table>
 			</div>
 		</div>
@@ -117,6 +117,7 @@
 		            formatter: function(value, row, index) {
 		                var actions = [];
 		                actions.push(statusTools(row));
+		                actions.push('<a class="btn btn-primary btn-xs ' + statusFlag + '" href="#" onclick="run(\'' + row.jobId + '\')"><i class="fa fa-play-circle-o"></i> 执行</a> ');
 		                actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="#" onclick="$.operate.edit(\'' + row.jobId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
 		                actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="#" onclick="$.operate.remove(\'' + row.jobId + '\')"><i class="fa fa-remove"></i>删除</a>');
 		                return actions.join('');
@@ -128,21 +129,28 @@
 
 		function statusTools(row) {
 		    if (row.status == 1) {
-		        return '<a class="btn btn-info btn-xs ' + statusFlag + '" href="#" onclick="start(this,\'' + row.jobId + '\')"><i class="fa fa-play"></i>启用</a> ';
+		        return '<a class="btn btn-info btn-xs ' + statusFlag + '" href="#" onclick="start(\'' + row.jobId + '\')"><i class="fa fa-play"></i>启用</a> ';
 		    } else {
-		    	return '<a class="btn btn-warning btn-xs ' + statusFlag + '" href="#" onclick="stop(this,\'' + row.jobId + '\')"><i class="fa fa-pause"></i>暂停</a> ';
+		    	return '<a class="btn btn-warning btn-xs ' + statusFlag + '" href="#" onclick="stop(\'' + row.jobId + '\')"><i class="fa fa-pause"></i>暂停</a> ';
 		    }
+		}
+		
+		/*立即执行一次*/
+		function run(jobId) {
+			$.modal.confirm("确认要立即执行任务吗？", function() {
+				$.operate.post(prefix + "/run", { "jobId": jobId});
+		    })
 		}
 
 		/*调度任务-停用*/
-		function stop(obj, jobId) {
+		function stop(jobId) {
 			$.modal.confirm("确认要停用任务吗？", function() {
 				$.operate.post(prefix + "/changeStatus", { "jobId": jobId, "status": 1 });
 		    })
 		}
 
 		/*调度任务-启用*/
-		function start(obj, jobId) {
+		function start(jobId) {
 			$.modal.confirm("确认要启用任务吗？", function() {
 				$.operate.post(prefix + "/changeStatus", { "jobId": jobId, "status": 0 });
 		    })

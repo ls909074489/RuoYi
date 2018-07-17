@@ -8,20 +8,22 @@
 	<div class="container-div">
 		<div class="row">
 			<div class="col-sm-12 select-info">
-				<form id="operlog-form">
+				<form id="data-form">
 					<div class="select-list gd">
 						<ul>
 						    <li>
-								字典类型：<input type="text" id="dictType" name="dictType" th:value="${dict.dictType}"/>
+								字典名称：<select id="dictType" name="dictType">
+					                      <option th:each="dict : ${dictList}" th:text="${dict['dictName']}" th:value="${dict['dictType']}" th:field="*{dict.dictType}"></option>
+					                  </select>
 							</li>
 							<li>
 								字典标签：<input type="text" name="dictLabel"/>
 							</li>
 							<li>
 								数据状态：<select name="status" th:with="type=${@dictService.selectDictData('sys_normal_disable')}">
-									<option value="">所有</option>
-									<option th:each="e : ${type}" th:text="${e['dictLabel']}" th:value="${e['dictValue']}"></option>
-								</select>
+									      <option value="">所有</option>
+									      <option th:each="e : ${type}" th:text="${e['dictLabel']}" th:value="${e['dictValue']}"></option>
+								      </select>
 							</li>
 							<li>
 								<a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search($('form').attr('id'))"><i class="fa fa-search"></i>&nbsp;搜索</a>
@@ -41,12 +43,13 @@
 		        </a>
 	        </div>
 	        
-	        <div class="col-sm-12 select-info order-table">
+	        <div class="col-sm-12 select-info table-striped">
 			    <table id="bootstrap-table" data-mobile-responsive="true"></table>
 			</div>
 		</div>
 	</div>
 	<div th:include="include :: footer"></div>
+	<script th:src="@{/ajax/libs/select/select2.js}"></script>
 	<script th:inline="javascript">
 		var editFlag = [[${@permissionService.hasPermi('system:dict:edit')}]];
 		var removeFlag = [[${@permissionService.hasPermi('system:dict:remove')}]];
