@@ -4,6 +4,7 @@ ruoyi:
   version: 2.0.0
   copyrightYear: 2018
   profile: D:/profile/
+  prefixFile: /profile/
 
 #开发环境配置
 server:
@@ -40,6 +41,9 @@ spring:
     multipart:
       max-file-size: 30Mb
       max-request-size: 30Mb
+  servlet:
+    multipart:
+      max-file-size: 30Mb
   devtools:
     restart:
       enabled: true    

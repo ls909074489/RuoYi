@@ -20,6 +20,8 @@ public class RuoYiConfig
     private String copyrightYear;
     /** 上传路径 */
     private static String profile;
+    /** 上传路径的访问前缀**/
+    private static String prefixFile;
 
     public String getName()
     {
@@ -60,5 +62,13 @@ public class RuoYiConfig
     {
         RuoYiConfig.profile = profile;
     }
+
+	public static String getPrefixFile() {
+		return prefixFile;
+	}
+
+	public void setPrefixFile(String prefixFile) {
+		RuoYiConfig.prefixFile = prefixFile;
+	}
 
 }
