@@ -75,6 +75,14 @@ public class NoticeController extends BaseController
         model.addAttribute("notice", notice);
         return prefix + "/edit";
     }
+    
+    @GetMapping("/view/{noticeId}")
+    public String view(@PathVariable("noticeId") Integer noticeId, Model model)
+    {
+        Notice notice = noticeService.selectNoticeById(noticeId);
+        model.addAttribute("notice", notice);
+        return prefix + "/view";
+    }
 
     /**
      * 保存公告

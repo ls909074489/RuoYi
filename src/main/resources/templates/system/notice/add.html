@@ -58,6 +58,17 @@
 		console.info("========="+ctx);
 		
 		$('#summernote').summernote({
+			toolbar: [
+    		          ['style', ['style']],
+    		          ['font', ['bold', 'italic', 'underline', 'clear']],
+    		          ['fontname', ['fontname']],
+    		          ['color', ['color']],
+    		          ['para', ['ul', 'ol', 'paragraph']],
+    		          ['height', ['height']],
+    		          ['table', ['table']],
+    		          ['insert', ['link', 'picture', 'hr']],
+    		          ['view', ['fullscreen']]
+    		],
 		    height: ($(window).height() - 300),
 		    callbacks: {
 		        onImageUpload: function(files) {

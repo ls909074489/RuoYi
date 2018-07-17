@@ -348,6 +348,10 @@
 						: $.table._option.createUrl.replace("{id}", id);
 				$.modal.openFull("添加" + $.table._option.modalName, url)
 			},
+			viewFull : function(id) {
+				var url = $.table._option.viewUrl.replace("{id}", id);
+				$.modal.openFull("查看" + $.table._option.modalName, url)
+			},
 			editFull : function(id) {
 				var url = $.table._option.updateUrl.replace("{id}", id);
 				$.modal.openFull("修改" + $.table._option.modalName, url)
