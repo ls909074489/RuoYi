@@ -7,7 +7,7 @@
     <div class="container-div">
 		<div class="row">
 			<div class="col-sm-12 select-info">
-				<form id="operlog-form">
+				<form id="gen-form">
 					<div class="select-list gd">
 						<ul>
 							<li>
@@ -30,7 +30,7 @@
 			    </a>
 		    </div>
 		
-		    <div class="col-sm-12 select-info order-table">
+		    <div class="col-sm-12 select-info table-striped">
 			    <table id="bootstrap-table" data-mobile-responsive="true"></table>
 			</div>
 		</div>
@@ -92,7 +92,7 @@
 		        return;
 		    }
 		    $.modal.confirm("确认要生成选中的" + rows.length + "条数据吗?", function() {
-		        location.href = prefix + "/batchGenCode?tables=" + JSON.stringify(rows);
+		        location.href = prefix + "/batchGenCode?tables=" + rows;
 		        layer.msg('执行成功,正在生成代码请稍后…', { icon: 1 });
 		    });
 		}

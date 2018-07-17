@@ -3,17 +3,19 @@
 <meta charset="utf-8">
 <head th:include="include :: header"></head>
 <body class="gray-bg">
-    <div class="wrapper wrapper-content">
-        <div class="btn-group hidden-xs" id="toolbar" role="group">
-	        <button class="btn btn-outline btn-default" onclick="$.operate.add()" shiro:hasPermission="${moduleName}:${classname}:add">
-	            <i class="fa fa-plus"></i> 新增
-	        </button>
-	        <button class="btn btn-outline btn-default" onclick="$.operate.batRemove()" shiro:hasPermission="${moduleName}:${classname}:remove">
-	            <i class="fa fa-trash-o"></i> 删除
-	        </button>
-        </div>
-        <table id="bootstrap-table" data-mobile-responsive="true">
-        </table>
+    <div class="container-div">
+		<div class="btn-group hidden-xs" id="toolbar" role="group">
+			<a class="btn btn-outline btn-success btn-rounded" onclick="$.operate.add()" shiro:hasPermission="${moduleName}:${classname}:add">
+				<i class="fa fa-plus"></i> 新增
+			</a>
+			<a class="btn btn-outline btn-danger btn-rounded" onclick="$.operate.batRemove()" shiro:hasPermission="${moduleName}:${classname}:remove">
+				<i class="fa fa-trash-o"></i> 删除
+			</a>
+		</div>
+			
+		<div class="col-sm-12 select-info table-striped">
+			<table id="bootstrap-table" data-mobile-responsive="true"></table>
+		</div>
     </div>
     <div th:include="include :: footer"></div>
     <script th:inline="javascript">

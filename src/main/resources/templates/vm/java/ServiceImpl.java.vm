@@ -100,7 +100,7 @@ public class ${className}ServiceImpl implements I${className}Service
 	@Override
 	public int delete${className}ByIds(String ids)
 	{
-		return ${classname}Mapper.delete${className}ByIds(Convert.toIntArray(ids));
+		return ${classname}Mapper.delete${className}ByIds(Convert.toStrArray(ids));
 	}
 	
 }

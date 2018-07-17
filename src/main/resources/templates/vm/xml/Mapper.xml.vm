@@ -9,14 +9,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="${column.attrname}"    column="${column.columnName}"    />
 #end
     </resultMap>
-    
-    <select id="select${className}ById" parameterType="${primaryKey.attrType}" resultMap="${className}Result">
+	
+	<sql id="select${className}Vo">
         select#foreach($column in $columns) $column.columnName#if($velocityCount != $columns.size()),#end#end from ${tableName}
-        where ${primaryKey.columnName} = #{${primaryKey.attrname}}
-    </select>
-    
+    </sql>
+	
     <select id="select${className}List" parameterType="${className}" resultMap="${className}Result">
-        select#foreach($column in $columns) $column.columnName#if($velocityCount != $columns.size()),#end#end from ${tableName}
+        <include refid="select${className}Vo"/>
         <where>  
 #foreach($column in $columns)
             <if test="$column.attrname != null and $column.attrname.trim() != ''"> and $column.columnName = #{$column.attrname}</if>
@@ -24,6 +23,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </where>
     </select>
     
+    <select id="select${className}ById" parameterType="${primaryKey.attrType}" resultMap="${className}Result">
+        <include refid="select${className}Vo"/>
+        where ${primaryKey.columnName} = #{${primaryKey.attrname}}
+    </select>
+        
     <insert id="insert${className}" parameterType="${className}"#if($primaryKey.extra == 'auto_increment') useGeneratedKeys="true" keyProperty="$primaryKey.attrname"#end>
         insert into ${tableName} (
 #foreach($column in $columns)
@@ -52,7 +56,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where ${primaryKey.columnName} = #{${primaryKey.attrname}}
     </update>
 	
-    <delete id="delete${className}ByIds" parameterType="${primaryKey.attrType}">
+	<delete id="delete${className}ById" parameterType="${primaryKey.attrType}">
+        delete from ${tableName} where ${primaryKey.columnName} = #{${primaryKey.attrname}}
+    </delete>
+	
+    <delete id="delete${className}ByIds" parameterType="String">
         delete from ${tableName} where ${primaryKey.columnName} in 
         <foreach item="${primaryKey.attrname}" collection="array" open="(" separator="," close=")">
             #{${primaryKey.attrname}}

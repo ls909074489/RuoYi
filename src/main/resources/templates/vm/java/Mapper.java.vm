@@ -44,11 +44,19 @@ public interface ${className}Mapper
 	public int update${className}(${className} ${classname});
 	
 	/**
+     * 删除${tableComment}
+     * 
+     * @param ${primaryKey.attrname} ${tableComment}ID
+     * @return 结果
+     */
+	public int delete${className}ById(${primaryKey.attrType} ${primaryKey.attrname});
+	
+	/**
      * 批量删除${tableComment}
      * 
      * @param ${primaryKey.attrname}s 需要删除的数据ID
      * @return 结果
      */
-	public int delete${className}ByIds(${primaryKey.attrType}[] ${primaryKey.attrname}s);
+	public int delete${className}ByIds(String[] ${primaryKey.attrname}s);
 	
 }
