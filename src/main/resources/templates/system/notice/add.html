@@ -5,19 +5,32 @@
 <link th:href="@{/ajax/libs/summernote/summernote.css?v=2}" rel="stylesheet"/>
 <link th:href="@{/ajax/libs/summernote/summernote-bs3.css?v=25}" rel="stylesheet"/>
 
-    <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/font-awesome.min.css">
+	<!--    
+ 	<link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/syntax.css">
     <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/style.css">
-
     <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/webuploader.css">
+   	 -->
+	<link rel="stylesheet" type="text/css" th:href="@{/Uploader/css/font-awesome.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/Uploader/css/syntax.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/Uploader/css/style.css?v=2}">
+	<link rel="stylesheet" type="text/css" th:href="@{/Uploader/css/webuploader.css}">
 
-    <link rel="stylesheet" type="text/css" th:href="@{/Uploader/css/Uploader.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/Uploader/css/Uploader.css?v=3}">
 
     <!-- uploader js -->
-    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<!--     
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://fex.baidu.com/webuploader/js/global.js"></script>
     <script type="text/javascript" src="http://fex.baidu.com/webuploader/js/webuploader.js"></script>
+     -->
+    
+    <script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/Uploader/js/global.js}"></script>
+	<script th:src="@{/Uploader/js/webuploader.js}"></script>
+	
 <body class="white-bg">
     <div class="wrapper wrapper-content animated fadeInRight ibox-content">
         <form class="form-horizontal m" id="form-notice-add">
@@ -35,37 +48,39 @@
 	                </select>
 				</div>
 			</div>
-			<div class="form-group">
-				 <div id="post-container" class="container">
-		            <div class="page-container">
-		                <h1 id="demo">Nine Pavilion Uploader File Demo</h1>
-		
-		                <p>您可以尝试文件拖拽，使用QQ截屏工具，然后激活窗口后粘贴，或者点击添加图片按钮，来体验此demo.</p>
-		
-		                <div id="uploader" class="wu-example">
-		                    <div class="queueList">
-		                        <div id="dndArea" class="placeholder">
-		                            <div id="filePicker" class="webuploader-container"><div class="webuploader-pick">点击选择图片</div><div id="rt_rt_1cgqvjr4lgt31fq71ldpdm318821" style="position: absolute; top: 0px; left: 348.016px; width: 168px; height: 44px; overflow: hidden; bottom: auto; right: auto;"><input type="file" name="file" class="webuploader-element-invisible" multiple="multiple" accept="image/*"><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div></div>
-		                            <p>或将照片拖到这里，单次最多可选300张</p>
-		                        </div>
-		                        <ul class="filelist" style="display: none;"></ul></div>
-		                    <div class="statusBar element-invisible" style="">
-		                        <div class="progress" style="display: none;">
-		                            <span class="text">0%</span>
-		                            <span class="percentage" style="width: 0%;"></span>
-		                        </div><div class="info">共0张（0B），已上传0张</div>
-		                        <div class="btns">
-		                            <div id="filePicker2" class="webuploader-container"><div class="webuploader-pick">继续添加</div><div id="rt_rt_1cgqvjr4olut16n1ih81m6687i6" style="position: absolute; top: 0px; left: 10px; width: 94px; height: 42px; overflow: hidden; bottom: auto; right: auto;"><input type="file" name="file" class="webuploader-element-invisible" multiple="multiple" accept="image/*"><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div></div><div class="uploadBtn state-pedding">开始上传</div>
-		                        </div>
-		                    </div>
-		                </div>
-		
-		            </div>
-		            <div >
-		                <span>标题：<input type="text" class="sd" name="title" style="border: #7e90b0 solid 1px"></span>&nbsp;&nbsp;
-		                <span>标签：<input type="text" class="sd" name="label" style="border: #7e90b0 solid 1px"></span>
-		            </div>
-		        </div>			
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">图片：</label>
+				<div class="col-sm-8">
+	                <div id="uploader" class="wu-example">
+	                    <div class="queueList">
+	                        <div id="dndArea" class="placeholder">
+	                            <div id="filePicker" class="webuploader-container"><div class="webuploader-pick">点击选择图片</div>
+		                            <div id="rt_rt_1cgqvjr4lgt31fq71ldpdm318821" style="position: absolute; top: 0px; left: 348.016px; width: 168px; height: 44px; overflow: hidden; bottom: auto; right: auto;">
+			                            <input type="file" name="file" class="webuploader-element-invisible" multiple="multiple" accept="image/*">
+			                            <label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label>
+		                            </div>
+	                            </div>
+	                            <p>或将照片拖到这里，单次最多可选300张</p>
+	                        </div>
+	                        <ul class="filelist" style="display: none;"></ul></div>
+	                    <div class="statusBar element-invisible" style="">
+	                        <div class="progress" style="display: none;">
+	                            <span class="text">0%</span>
+	                            <span class="percentage" style="width: 0%;"></span>
+	                        </div><div class="info">共0张（0B），已上传0张</div>
+	                        <div class="btns">
+	                            <div id="filePicker2" class="webuploader-container">
+	                            	<div class="webuploader-pick">继续添加</div>
+		                            <div id="rt_rt_1cgqvjr4olut16n1ih81m6687i6" style="position: absolute; top: 0px; left: 10px; width: 94px; height: 42px; overflow: hidden; bottom: auto; right: auto;">
+		                            	<input type="file" name="file" class="webuploader-element-invisible" multiple="multiple" accept="image/*">
+		                            	<label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label>
+		                            </div>
+	                            </div>
+	                            <div class="uploadBtn state-pedding">开始上传</div>
+	                        </div>
+	                    </div>
+	                </div>
+				</div>
 			</div>
 			<div class="form-group">	
 				<label class="col-sm-3 control-label">公告内容：</label>
@@ -139,7 +154,6 @@
 	            dataType : "json",
 	            success: function(data) {//data是返回的hash,key之类的值，key是定义的文件名
 	            	console.info(data);
-	            	//"http://www.runoob.com/wp-content/uploads/2015/09/web_architecture.jpg"
 	            	console.info(data.flag==true);
 	            	if(data.flag){
 	            		$('#summernote').summernote('insertImage', ctx+data.msg);

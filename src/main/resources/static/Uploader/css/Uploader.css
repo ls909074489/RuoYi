@@ -269,10 +269,10 @@
 }
 
 #uploader .statusBar {
-    height: 63px;
+    height: 53px;
     border-top: 1px solid #dadada;
     padding: 0 20px;
-    line-height: 63px;
+    line-height: 53px;
     vertical-align: middle;
     position: relative;
 }
