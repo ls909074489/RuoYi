@@ -19,29 +19,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    <select id="selectNoticeList" parameterType="NoticeReply" resultMap="NoticeReplyResult">
         <include refid="selectNoticeReplyVo"/>
         <where>
-				AND notice_id = #{noticeId}
+				AND notice_id = #{noticeId} and status='0'
 		</where>
+		order by create_time desc
     </select>
     
     
     
-    <insert id="insertNoticeReply" parameterType="NoticeReply">
-        insert into sys_notice (
-			<if test="noticeTitle != null and noticeTitle != '' ">notice_title, </if>
-			<if test="noticeType != null and noticeType != '' ">notice_type, </if>
-			<if test="noticeContent != null and noticeContent != '' ">notice_content, </if>
-			<if test="status != null and status != '' ">status, </if>
-			<if test="remark != null and remark != ''">remark,</if>
- 			<if test="createBy != null and createBy != ''">create_by,</if>
- 			create_time,view_count,reply_count
+    <insert id="addReply" parameterType="NoticeReply">
+        insert into sys_notice_reply (
+			notice_id,reply_content,status,
+			<if test="createBy != null and createBy != ''">create_by,</if>
+			create_time
  		)values(
-			<if test="noticeTitle != null and noticeTitle != ''">#{noticeTitle}, </if>
-			<if test="noticeType != null and noticeType != ''">#{noticeType}, </if>
-			<if test="noticeContent != null and noticeContent != ''">#{noticeContent}, </if>
-			<if test="status != null and status != ''">#{status}, </if>
-			<if test="remark != null and remark != ''">#{remark},</if>
+			#{noticeId},#{replyContent},'0',
  			<if test="createBy != null and createBy != ''">#{createBy},</if>
- 			sysdate(),0,0
+ 			sysdate()
 		)
     </insert>
 	 

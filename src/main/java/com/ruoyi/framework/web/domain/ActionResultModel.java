@@ -11,6 +11,7 @@ import java.util.List;
 public class ActionResultModel<T> {
 
 	private boolean suc=false;
+	private String msg="";
 	private List<T> records=new ArrayList<T>();
 	
 	public boolean isSuc() {
@@ -18,6 +19,12 @@ public class ActionResultModel<T> {
 	}
 	public void setSuc(boolean suc) {
 		this.suc = suc;
+	}
+	public String getMsg() {
+		return msg;
+	}
+	public void setMsg(String msg) {
+		this.msg = msg;
 	}
 	public List<T> getRecords() {
 		return records;

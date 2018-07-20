@@ -21,7 +21,8 @@ public class NoticeServiceImpl implements INoticeService
 {
     @Autowired
     private NoticeMapper noticeMapper;
-
+    @Autowired
+    private INoticeReplyService noticeReplyService;
     /**
      * 查询公告信息
      * 
@@ -125,7 +126,8 @@ public class NoticeServiceImpl implements INoticeService
 	}
 
 	@Override
-	public int addReplyCount(Integer noticeId) {
+	public int addReplyCount(Integer noticeId,String replyContent) {
+		noticeReplyService.addReply(noticeId,replyContent);
 		return noticeMapper.addReplyCount(noticeId);
 	}
 

@@ -25,5 +25,13 @@ public class NoticeReplyServiceImpl implements INoticeReplyService
 		return noticeReplyMapper.selectNoticeList(noticeId);
 	}
 
+	@Override
+	public int addReply(Integer noticeId, String replyContent) {
+		NoticeReply reply=new NoticeReply();
+		reply.setNoticeId(noticeId);
+		reply.setReplyContent(replyContent);
+		return noticeReplyMapper.addReply(reply);
+	}
+
 
 }

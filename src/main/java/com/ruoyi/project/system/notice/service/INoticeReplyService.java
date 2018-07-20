@@ -18,5 +18,8 @@ public interface INoticeReplyService{
      */
     public List<NoticeReply> selectNoticeList(Integer noticeId);
 
+    
+	public int addReply(Integer noticeId, String replyContent);
+
 
 }

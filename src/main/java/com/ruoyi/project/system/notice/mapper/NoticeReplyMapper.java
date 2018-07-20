@@ -18,5 +18,8 @@ public interface NoticeReplyMapper{
      */
     public List<NoticeReply> selectNoticeList(Integer noticeId);
 
+    
+	public int addReply(NoticeReply reply);
+
 
 }

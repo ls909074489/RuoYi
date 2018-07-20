@@ -34,22 +34,19 @@ public class NoticePubController extends BaseController{
     private INoticeReplyService noticeReplyService;
 
     @RequestMapping("/{userName}")
-    public String detailList(@PathVariable("userName") String userName, Model model)
-    {
-    	 List<Notice> list = noticeService.listByCreator(userName);
-    	 System.out.println(list.size());
-    	 model.addAttribute("list", list);
+    public String detailList(@PathVariable("userName") String userName, Model model){
+    	List<Notice> list = noticeService.listByCreator(userName);
+    	model.addAttribute("userName", userName);
+    	model.addAttribute("list", list);
         return prefix + "/pub_notice_list";
     }
 
     @RequestMapping("/view")
-    public String detailView(@RequestParam Integer noticeId, Model model)
-    {
-    	 Notice notice = noticeService.selectNoticeById(noticeId);
-    	 noticeService.addViewCount(noticeId);
-    	 System.out.println(notice);
-    	 System.out.println(notice.getReplyCount()+"========");
-    	 model.addAttribute("notice", notice);
+    public String detailView(@RequestParam Integer noticeId,@RequestParam String userName, Model model){
+    	Notice notice = noticeService.selectNoticeById(noticeId);
+    	noticeService.addViewCount(noticeId);
+    	model.addAttribute("notice", notice);
+    	model.addAttribute("userName", userName);
         return prefix + "/pub_notice_detail";
     }
     
@@ -62,7 +59,7 @@ public class NoticePubController extends BaseController{
     @ResponseBody
     @RequestMapping("/addReply")
     public AjaxResult addReply(@RequestParam Integer noticeId, String replyContent){
-    	int updateCount= noticeService.addReplyCount(noticeId);
+    	int updateCount= noticeService.addReplyCount(noticeId,replyContent);
     	System.out.println(updateCount);
         return AjaxResult.success("");
     }
@@ -79,6 +76,7 @@ public class NoticePubController extends BaseController{
     	ActionResultModel<NoticeReply> arm=new ActionResultModel<NoticeReply>();
     	List<NoticeReply> list= noticeReplyService.selectNoticeList(noticeId);
     	arm.setSuc(true);
+    	arm.setMsg((list==null?0:list.size())+"");
     	arm.setRecords(list);
         return arm;
     }

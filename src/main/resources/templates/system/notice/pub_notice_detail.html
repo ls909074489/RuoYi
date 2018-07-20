@@ -32,69 +32,10 @@
 
 <div class="fly-header layui-bg-black">
   <div class="layui-container">
-    <a class="fly-logo" href="/">
+  	<span style="font-size: 26px;" class="fly-logo" onclick="backNoticeList();"> &larr; 返回 </span>
+    <!-- <a class="fly-logo" href="/">
        <img th:src="@{/fly/res/images/logo.png}" alt="layui">
-    </a>
-    <ul class="layui-nav fly-nav layui-hide-xs">
-      <li class="layui-nav-item layui-this">
-        <a href="/"><i class="iconfont icon-jiaoliu"></i>交流</a>
-      </li>
-      <li class="layui-nav-item">
-        <a href="../case/case.html"><i class="iconfont icon-iconmingxinganli"></i>案例</a>
-      </li>
-      <li class="layui-nav-item">
-        <a href="http://www.layui.com/" target="_blank"><i class="iconfont icon-ui"></i>框架</a>
-      </li>
-    </ul>
-    
-    <ul class="layui-nav fly-nav-user">
-      
-      <!-- 登入后的状态 -->
-      <li class="layui-nav-item">
-        <a class="fly-nav-avatar" href="javascript:;">
-          <cite class="layui-hide-xs">贤心</cite>
-          <i class="iconfont icon-renzheng layui-hide-xs" title="认证信息：layui 作者"></i>
-          <i class="layui-badge fly-badge-vip layui-hide-xs">VIP3</i>
-          <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg">
-        </a>
-        <dl class="layui-nav-child">
-          <dd><a href="../user/set.html"><i class="layui-icon">&#xe620;</i>基本设置</a></dd>
-          <dd><a href="../user/message.html"><i class="iconfont icon-tongzhi" style="top: 4px;"></i>我的消息</a></dd>
-          <dd><a href="../user/home.html"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a></dd>
-          <hr style="margin: 5px 0;">
-          <dd><a href="" style="text-align: center;">退出</a></dd>
-        </dl>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<div class="layui-hide-xs">
-  <div class="fly-panel fly-column">
-    <div class="layui-container">
-      <ul class="layui-clear">
-        <li class="layui-hide-xs"><a href="/">首页</a></li> 
-        <li class="layui-this"><a href="">提问</a></li> 
-        <li><a href="">分享<span class="layui-badge-dot"></span></a></li> 
-        <li><a href="">讨论</a></li> 
-        <li><a href="">建议</a></li> 
-        <li><a href="">公告</a></li> 
-        <li><a href="">动态</a></li> 
-        <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><span class="fly-mid"></span></li> 
-        
-        <!-- 用户登入后显示 -->
-        <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="../user/index.html">我发表的贴</a></li> 
-        <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="../user/index.html#collection">我收藏的贴</a></li> 
-      </ul> 
-      
-      <div class="fly-column-right layui-hide-xs"> 
-        <span class="fly-search"><i class="layui-icon"></i></span> 
-        <a href="add.html" class="layui-btn">发表新帖</a> 
-      </div> 
-      <div class="layui-hide-sm layui-show-xs-block" style="margin-top: -10px; padding-bottom: 10px; text-align: center;"> 
-        <a href="add.html" class="layui-btn">发表新帖</a> 
-      </div> 
-    </div>
+    </a> -->
   </div>
 </div>
 
@@ -108,7 +49,7 @@
           <div class="fly-admin-box" data-id="123">
           </div>
           <span class="fly-list-nums"> 
-            <a href="#comment"><i class="iconfont" title="回答">&#xe60c;</i> <span th:text="${notice.replyCount}"></span></a>
+            <a href="#comment"><i class="iconfont" title="回答">&#xe60c;</i> <span id="noticeReplyCountSpan" th:text="${notice.replyCount}"></span></a>
             <i class="iconfont" title="人气">&#xe60b;</i> <span th:text="${notice.viewCount}"></span>
           </span>
         </div>
@@ -138,7 +79,7 @@
           </form>
         </div>
         <ul class="jieda" id="replyUl">
-          <li>
+         <!--  <li>
             <div class="detail-about detail-about-reply" style="padding-left: 0px; ">
               <div class="detail-hits">
                 <span>2017-11-30</span>
@@ -147,7 +88,7 @@
             <div class="detail-body jieda-body photos" style="margin-top: 5px;margin-bottom: 10px;">
               <p>蓝瘦那个香菇，这是一条没被采纳的回帖</p>
             </div>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -161,7 +102,6 @@
 			}
 		},
 		submitHandler: function(form) {
-			console.info("cccccccccc");
 		    $.modal.loading("正在处理中，请稍后...");
 			var config = {
 				url :  /*[[@{/}]]*/'/pub/notice/addReply',
@@ -169,10 +109,11 @@
 				dataType : "json",
 				data : $('#form-notice-reply').serialize(),
 				success : function(result) {
-					console.info(result);
 					if (result.code == web_status.SUCCESS) {
 						//$.modal.msgReload("保存成功,正在刷新数据请稍后……",modal_status.SUCCESS)
+						 $("#replyContent").val("");
 						 layer.msg("保存成功,正在刷新数据请稍后……", {icon: 0,time: 1000});
+						 loadReplyList();
 					} else {
 						$.modal.alertError(result.msg);
 					}
@@ -182,34 +123,47 @@
 			$.ajax(config);
 		}
 	});
+
+
+	$(document).ready(function(){
+		loadReplyList();
+	});
 	
-	$.ajax({
-        type: "GET",
-        url :  /*[[@{/}]]*/'/pub/notice/dataReply',
-        data: {noticeId:$("#noticeId").val()},
-        dataType: "json",
-        success: function(data){
-           //$('#replyUl').empty();   //清空resText里面的所有内容
-           var html = ''; 
-           if(data.suc){
-        	   $.each(data.records, function(commentIndex, comment){
-            	   console.info("aaaaaaaaaaaaaaaaaaaaaaaa");
-            	   html += '<li>'+
-	               '<div class="detail-about detail-about-reply" style="padding-left: 0px; ">'+
-	                 '<div class="detail-hits">'+
-	                   '<span>2017-11-30</span>'+
-	                 '</div>'+
-	               '</div>'+
-	               '<div class="detail-body jieda-body photos" style="margin-top: 5px;margin-bottom: 10px;">'+
-	                 '<p>'+comment['replyContent']+'</p>'+
-	               '</div>'+
-	             '</li>';
-               });
-        	   console.info(html);
-        	   $('#replyUl').html(html);
-           }
-        }
-    });
+	//加载回答列表
+	function loadReplyList(){
+		$.ajax({
+	        type: "GET",
+	        url :  /*[[@{/}]]*/'/pub/notice/dataReply',
+	        data: {noticeId:$("#noticeId").val()},
+	        dataType: "json",
+	        success: function(data){
+	           //$('#replyUl').empty();   //清空resText里面的所有内容
+	           var html = ''; 
+	           if(data.suc){
+	        	   $.each(data.records, function(commentIndex, comment){
+	            	   html += '<li>'+
+		               '<div class="detail-about detail-about-reply" style="padding-left: 0px; ">'+
+		                 '<div class="detail-hits">'+
+		                   '<span>'+comment['createDateTimeStr']+'</span>'+
+		                 '</div>'+
+		               '</div>'+
+		               '<div class="detail-body jieda-body photos" style="margin-top: 5px;margin-bottom: 10px;">'+
+		                 '<p>'+comment['replyContent']+'</p>'+
+		               '</div>'+
+		             '</li>';
+	               });
+	        	   $('#replyUl').html(html);
+	        	   //设置回答次数
+	        	   $("#noticeReplyCountSpan").html(data.msg);
+	           }
+	        }
+	    });
+	}
+	//返回通知列表
+	function backNoticeList(){
+		var url=/*[[@{/}]]*/'/pub/notice/[[${userName}]]';
+		window.location.href=url;
+	}
 </script>
 <div class="fly-footer">
   <p><a href="http://fly.layui.com/" target="_blank">Fly社区</a> 2017 &copy; <a href="http://www.layui.com/" target="_blank">layui.com 出品</a></p>

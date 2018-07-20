@@ -77,6 +77,6 @@ public interface INoticeService
 	 * @param noticeId
 	 * @return
 	 */
-	public int addReplyCount(Integer noticeId);
+	public int addReplyCount(Integer noticeId,String replyContent);
 
 }
