@@ -108,4 +108,25 @@ public class NoticeServiceImpl implements INoticeService
         return noticeMapper.deleteNoticeByIds(Convert.toStrArray(ids));
     }
 
+    
+    /**
+     * 根据创建人查询
+     * @param createBy
+     * @return
+     */
+	@Override
+	public List<Notice> listByCreator(String createBy) {
+		return noticeMapper.listByCreator(createBy);
+	}
+
+	@Override
+	public int addViewCount(Integer noticeId) {
+		return noticeMapper.addViewCount(noticeId);
+	}
+
+	@Override
+	public int addReplyCount(Integer noticeId) {
+		return noticeMapper.addReplyCount(noticeId);
+	}
+
 }

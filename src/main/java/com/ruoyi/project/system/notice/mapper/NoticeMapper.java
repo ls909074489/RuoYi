@@ -50,4 +50,16 @@ public interface NoticeMapper
      */
     public int deleteNoticeByIds(String[] noticeIds);
 
+    /**
+     * 根据创建人查询
+     * @param createBy
+     * @return
+     */
+	public List<Notice> listByCreator(String createBy);
+
+	
+	public int addViewCount(Integer noticeId);
+
+	public int addReplyCount(Integer noticeId);
+
 }

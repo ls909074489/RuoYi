@@ -592,3 +592,16 @@ create table sys_notice (
 -- ----------------------------
 insert into sys_notice values('1', '温馨提醒：2018-07-01 若依新版本发布啦', '2', '新版本内容', '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '管理员');
 insert into sys_notice values('2', '维护通知：2018-07-01 若依系统凌晨维护', '1', '维护内容',   '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '管理员');
+
+
+create table sys_notice_reply (
+  reply_id 		int(4) 		    not null auto_increment    comment '公告回答ID',
+  notice_id 		int(4) 		    not null comment '公告ID',  
+  reply_content    varchar(250)    not null                   comment '回答内容',
+  status 			char(1) 		default '0' 			   comment '公告状态（0正常 1关闭）',
+  create_by         varchar(64)     default ''                 comment '创建者',
+  create_time 		datetime                                   comment '创建时间',
+  update_by 		varchar(64) 	default ''			       comment '更新者',
+  update_time 		datetime                                   comment '更新时间', 
+  primary key (reply_id)
+) engine=innodb auto_increment=10 default charset=utf8 comment = '通知公告回答表';

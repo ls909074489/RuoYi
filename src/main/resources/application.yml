@@ -46,7 +46,7 @@ spring:
   devtools:
     restart:
       #禁用devtools模块的热部署功能
-      enabled: true  
+      enabled: true
 # MyBatis
 mybatis:
     # 搜索指定包别名

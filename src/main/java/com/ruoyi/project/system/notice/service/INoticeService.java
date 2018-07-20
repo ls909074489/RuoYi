@@ -58,4 +58,25 @@ public interface INoticeService
      */
     public int deleteNoticeByIds(String ids);
 
+    /**
+     * 根据创建人查询
+     * @param createBy
+     * @return
+     */
+	public List<Notice> listByCreator(String createBy);
+
+	/**
+	 * 查看次数+1
+	 * @param noticeId
+	 * @return
+	 */
+	public int addViewCount(Integer noticeId);
+	
+	/**
+	 * 回复次数+1
+	 * @param noticeId
+	 * @return
+	 */
+	public int addReplyCount(Integer noticeId);
+
 }

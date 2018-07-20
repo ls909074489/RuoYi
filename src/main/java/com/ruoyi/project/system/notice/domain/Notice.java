@@ -21,6 +21,10 @@ public class Notice extends BaseEntity
     private String noticeContent;
     /** 公告状态（0正常 1关闭） */
     private String status;
+    
+    private Integer viewCount=0;//查看次数
+    
+    private Integer replyCount=0;//回复次数
 
     public void setNoticeId(Integer noticeId)
     {
@@ -72,4 +76,19 @@ public class Notice extends BaseEntity
         return status;
     }
 
+	public Integer getViewCount() {
+		return viewCount;
+	}
+
+	public void setViewCount(Integer viewCount) {
+		this.viewCount = viewCount;
+	}
+
+	public Integer getReplyCount() {
+		return replyCount;
+	}
+
+	public void setReplyCount(Integer replyCount) {
+		this.replyCount = replyCount;
+	}
 }
