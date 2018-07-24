@@ -28,6 +28,7 @@ public class LoginController extends BaseController
     @GetMapping("/login")
     public String login(HttpServletRequest request, HttpServletResponse response, Model model)
     {
+    	System.out.println("//////login");
         // 如果是Ajax请求，返回Json字符串。
         if (ServletUtils.isAjaxRequest((HttpServletRequest) request))
         {
@@ -41,6 +42,7 @@ public class LoginController extends BaseController
     @ResponseBody
     public AjaxResult ajaxLogin(String username, String password, Boolean rememberMe)
     {
+    	System.out.println("post login=============");
         UsernamePasswordToken token = new UsernamePasswordToken(username, password, rememberMe);
         Subject subject = SecurityUtils.getSubject();
         try
