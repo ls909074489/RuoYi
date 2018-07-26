@@ -43,13 +43,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
     </select>
     
-    <select id="listByCreator" parameterType="String" resultMap="NoticeResult">
+    <select id="listByCreator" parameterType="Notice" resultMap="NoticeResult">
         <include refid="selectNoticeVo"/>
         <where>
-			<if test="_parameter != null and _parameter != ''">
+			<!-- <if test="_parameter != null and _parameter != ''">
 				AND create_by = #{_parameter} and status='0'
+			</if> -->
+			<if test="createBy != null and createBy != ''">
+				AND create_by = #{createBy}
+			</if>
+			<if test="status != null and status != ''">
+				AND status = #{status}
 			</if>
 		</where>
+		order by create_time desc
     </select>
     
     <insert id="insertNotice" parameterType="Notice">

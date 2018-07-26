@@ -63,7 +63,7 @@ public interface INoticeService
      * @param createBy
      * @return
      */
-	public List<Notice> listByCreator(String createBy);
+	public List<Notice> listByCreator(Notice notice);
 
 	/**
 	 * 查看次数+1

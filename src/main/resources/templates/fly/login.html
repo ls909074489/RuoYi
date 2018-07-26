@@ -60,7 +60,7 @@
       <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
         <div class="layui-tab-item layui-show">
           <div class="layui-form layui-form-pane">
-            <form method="post" th:action="@{/login}">
+            <form id="loginForm" method="post" th:action="@{/login}">
               <div class="layui-form-item">
                 <label for="L_email" class="layui-form-label">邮箱</label>
                 <div class="layui-input-inline">
@@ -85,7 +85,7 @@
                 </div>
               </div> -->
               <div class="layui-form-item">
-                <button type="submit" class="layui-btn">立即登录</button>
+                <button type="button" class="layui-btn"  lay-submit lay-filter="loginFormFilterBtn">立即登录</button>
                 <span style="padding-left:20px;">
                   <a href="forget.html">忘记密码？</a>
                 </span>
@@ -112,6 +112,7 @@
   </p>
 </div>
 
+<script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
 <script th:src="@{/fly/res/layui/layui.js}"></script>
 <script>
 layui.cache.page = 'user';
@@ -128,6 +129,39 @@ layui.config({
 }).extend({
   fly: 'index'
 }).use('fly');
+
+
+$(".layui-btn").click(function(){
+	layui.use('form', function(){
+	  var form = layui.form;
+	  //监听提交
+	  form.on('submit(loginFormFilterBtn)', function(data){
+		var loginWaitLoad=layer.load(2);
+	    $.ajax({
+			type : "POST",
+			data :$("#loginForm").serializeArray(),
+			url :  /*[[@{/}]]*/'/login',
+			async : true,
+			dataType : "json",
+			success : function(data) {
+				layer.close(loginWaitLoad);
+				if (data.code==0) {
+					layer.msg('登录成功', {icon: 1}); 
+					window.location.href=/*[[@{/}]]*/'/system/notice/flyList';
+				}else {
+					layer.alert(data.msg);  
+				}
+			},
+			error : function(data) {
+				layer.close(loginWaitLoad);
+				layer.alert("登录失败，请联系管理员");  
+			}
+		});
+	    return false;
+	  });
+	});
+});
+
 </script>
 
 </body>

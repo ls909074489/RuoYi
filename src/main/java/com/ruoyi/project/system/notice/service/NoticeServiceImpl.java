@@ -116,8 +116,8 @@ public class NoticeServiceImpl implements INoticeService
      * @return
      */
 	@Override
-	public List<Notice> listByCreator(String createBy) {
-		return noticeMapper.listByCreator(createBy);
+	public List<Notice> listByCreator(Notice notice) {
+		return noticeMapper.listByCreator(notice);
 	}
 
 	@Override

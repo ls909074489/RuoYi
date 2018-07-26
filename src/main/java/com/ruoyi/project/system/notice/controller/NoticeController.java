@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.ruoyi.project.system.notice.domain.Notice;
 import com.ruoyi.project.system.notice.service.INoticeService;
+import com.ruoyi.common.utils.security.ShiroUtils;
 import com.ruoyi.framework.aspectj.lang.annotation.Log;
 import com.ruoyi.framework.aspectj.lang.constant.BusinessType;
 import com.ruoyi.framework.web.controller.BaseController;
@@ -110,4 +112,39 @@ public class NoticeController extends BaseController
         return error();
     }
 
+    
+    @GetMapping("/flyList")
+    public String flyList(Model model){
+    	String userName=ShiroUtils.getLoginName();
+    	Notice notice=new Notice();
+    	notice.setCreateBy(userName);
+    	List<Notice> list = noticeService.listByCreator(notice);
+    	model.addAttribute("userName", userName);
+    	model.addAttribute("list", list);
+        return prefix + "/pub_notice_main";
+    }
+    
+    @GetMapping("/flyAdd")
+    public String flyAdd(Model model){
+        return prefix + "/pub_notice_add";
+    }
+    
+    @Log(title = "通知公告", action = BusinessType.UPDATE)
+    @GetMapping("/flyEdit/{noticeId}")
+    public String flyEdit(@PathVariable("noticeId") Integer noticeId, Model model){
+        Notice notice = noticeService.selectNoticeById(noticeId);
+        model.addAttribute("notice", notice);
+        return prefix + "/pub_notice_edit";
+    }
+    
+    
+    @GetMapping("/flyView")
+    public String flyView(@RequestParam Integer noticeId,Model model){
+    	Notice notice = noticeService.selectNoticeById(noticeId);
+    	System.out.println(noticeId+"="+notice);
+    	model.addAttribute("notice", notice);
+        return prefix + "/pub_notice_view";
+    }
+  
+    
 }

@@ -55,7 +55,7 @@ public interface NoticeMapper
      * @param createBy
      * @return
      */
-	public List<Notice> listByCreator(String createBy);
+	public List<Notice> listByCreator(Notice notice);
 
 	
 	public int addViewCount(Integer noticeId);

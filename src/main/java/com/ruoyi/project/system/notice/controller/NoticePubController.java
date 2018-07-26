@@ -35,7 +35,10 @@ public class NoticePubController extends BaseController{
 
     @RequestMapping("/{userName}")
     public String detailList(@PathVariable("userName") String userName, Model model){
-    	List<Notice> list = noticeService.listByCreator(userName);
+    	Notice notice=new Notice();
+    	notice.setCreateBy(userName);
+    	notice.setStatus("0");
+    	List<Notice> list = noticeService.listByCreator(notice);
     	model.addAttribute("userName", userName);
     	model.addAttribute("list", list);
         return prefix + "/pub_notice_list";
