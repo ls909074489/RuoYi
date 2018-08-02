@@ -38,37 +38,36 @@ public class OnlineSessionFilter extends AccessControlFilter
      */
     @Override
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue)
-            throws Exception
-    {
-        Subject subject = getSubject(request, response);
-        if (subject == null || subject.getSession() == null)
-        {
-            return true;
-        }
-        Session session = onlineSessionDAO.readSession(subject.getSession().getId());
-        if (session != null && session instanceof OnlineSession)
-        {
-            OnlineSession onlineSession = (OnlineSession) session;
-            request.setAttribute(ShiroConstants.ONLINE_SESSION, onlineSession);
-            // 把user对象设置进去
-            boolean isGuest = onlineSession.getUserId() == null || onlineSession.getUserId() == 0L;
-            if (isGuest == true)
-            {
-                User user = ShiroUtils.getUser();
-                if (user != null)
-                {
-                    onlineSession.setUserId(user.getUserId());
-                    onlineSession.setLoginName(user.getLoginName());
-                    onlineSession.setDeptName(user.getDept().getDeptName());
-                    onlineSession.markAttributeChanged();
-                }
-            }
-
-            if (onlineSession.getStatus() == OnlineSession.OnlineStatus.off_line)
-            {
-                return false;
-            }
-        }
+            throws Exception{
+//        Subject subject = getSubject(request, response);
+//        if (subject == null || subject.getSession() == null)
+//        {
+//            return true;
+//        }
+//        Session session = onlineSessionDAO.readSession(subject.getSession().getId());
+//        if (session != null && session instanceof OnlineSession)
+//        {
+//            OnlineSession onlineSession = (OnlineSession) session;
+//            request.setAttribute(ShiroConstants.ONLINE_SESSION, onlineSession);
+//            // 把user对象设置进去
+//            boolean isGuest = onlineSession.getUserId() == null || onlineSession.getUserId() == 0L;
+//            if (isGuest == true)
+//            {
+//                User user = ShiroUtils.getUser();
+//                if (user != null)
+//                {
+//                    onlineSession.setUserId(user.getUserId());
+//                    onlineSession.setLoginName(user.getLoginName());
+//                    onlineSession.setDeptName(user.getDept().getDeptName());
+//                    onlineSession.markAttributeChanged();
+//                }
+//            }
+//
+//            if (onlineSession.getStatus() == OnlineSession.OnlineStatus.off_line)
+//            {
+//                return false;
+//            }
+//        }
         return true;
     }
 

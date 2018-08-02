@@ -47,6 +47,26 @@ spring:
     restart:
       #禁用devtools模块的热部署功能
       enabled: true
+  redis:
+    password: 
+    database: 0
+    port: 6379
+    jedis:
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1
+    host: localhost
+    timeout: 500
+  session:
+    store-type: redis
+    redis:
+        flush-mode: on_save
+        namespace: session
+    
+      
+      
 # MyBatis
 mybatis:
     # 搜索指定包别名
@@ -100,3 +120,24 @@ gen:
   autoRemovePre: true
   # 表前缀(类名不会包含表前缀)
   tablePrefix: sys_
+
+sharded:
+  redis:
+    maxIdle: 10
+    maxTotal: 300
+    maxWaitMillis: 30000
+    timeout: 15000
+    testOnBorrow: true
+  redis0:
+    host: localhost
+    port: 6379
+  redis1:
+    host: localhost
+    port: 0
+  redis2:
+    host: 0.0.0.0
+    port: 0
+  redis3:
+    host: 0.0.0.0
+    port: 0    
+  

@@ -1,16 +1,22 @@
 package com.ruoyi.framework.shiro.web.session;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+
+import javax.servlet.ServletRequest;
+
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.shiro.session.ExpiredSessionException;
 import org.apache.shiro.session.InvalidSessionException;
 import org.apache.shiro.session.Session;
+import org.apache.shiro.session.UnknownSessionException;
 import org.apache.shiro.session.mgt.DefaultSessionKey;
 import org.apache.shiro.session.mgt.SessionKey;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
+import org.apache.shiro.web.session.mgt.WebSessionKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.ruoyi.common.constant.ShiroConstants;
@@ -153,4 +159,26 @@ public class OnlineWebSessionManager extends DefaultWebSessionManager
     {
         throw new UnsupportedOperationException("getActiveSessions method not supported");
     }
+
+	@Override
+	protected Session retrieveSession(SessionKey sessionKey) throws UnknownSessionException {
+		System.out.println("override retrieveSession================");
+		Serializable sessionId = getSessionId(sessionKey);
+        ServletRequest request = null;
+        if(sessionKey instanceof WebSessionKey){
+            request = ((WebSessionKey)sessionKey).getServletRequest();
+        }
+        if(request !=null && sessionId !=null){
+            Session session = (Session) request.getAttribute(sessionId.toString());
+            if(session != null){
+                return session;
+            }
+        }
+        Session session = super.retrieveSession(sessionKey);
+        if(request !=null && sessionId != null){
+            request.setAttribute(sessionId.toString(),session);
+        }
+        return session;
+	}
+    
 }
