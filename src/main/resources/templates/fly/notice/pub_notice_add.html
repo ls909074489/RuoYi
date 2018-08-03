@@ -1,36 +1,27 @@
 <!DOCTYPE HTML>
 <html  lang="zh" xmlns:th="http://www.thymeleaf.org">
-<meta charset="utf-8">
-<head th:include="include :: header"></head>
-<link th:href="@{/ajax/libs/summernote/summernote.css?v=2}" rel="stylesheet"/>
-<link th:href="@{/ajax/libs/summernote/summernote-bs3.css?v=25}" rel="stylesheet"/>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+	<link th:href="@{/css/layui.css}" rel="stylesheet" >
+	<link th:href="@{/css/font-awesome.css}" rel="stylesheet"/>
+	<!-- bootstrap-table 表格插件样式 -->
+	<link th:href="@{/css/animate.css}" rel="stylesheet"/>
+	<link th:href="@{/css/style.css}" rel="stylesheet"/>
+	<link th:href="@{/ruoyi/css/ry-ui.min.css}" rel="stylesheet"/>
+	<link th:href="@{/ajax/libs/summernote/summernote.css?v=2}" rel="stylesheet"/>
+	<link th:href="@{/ajax/libs/summernote/summernote-bs3.css?v=25}" rel="stylesheet"/>
 
-	<!--    
- 	<link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/syntax.css">
-    <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/style.css">
-    <link rel="stylesheet" type="text/css" href="http://fex.baidu.com/webuploader/css/webuploader.css">
-   	 -->
 	<link rel="stylesheet" type="text/css" th:href="@{/Uploader/css/font-awesome.min.css}">
 	<link rel="stylesheet" type="text/css" th:href="@{/Uploader/css/syntax.css}">
 	<link rel="stylesheet" type="text/css" th:href="@{/Uploader/css/style.css?v=2}">
 	<link rel="stylesheet" type="text/css" th:href="@{/Uploader/css/webuploader.css}">
-
     <link rel="stylesheet" type="text/css" th:href="@{/Uploader/css/Uploader.css?v=3}">
 
-    <!-- uploader js -->
-	<!--     
-	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://fex.baidu.com/webuploader/js/global.js"></script>
-    <script type="text/javascript" src="http://fex.baidu.com/webuploader/js/webuploader.js"></script>
-     -->
-    
-    <script th:src="@{/js/jquery.min.js}"></script>
-	<script th:src="@{/js/bootstrap.min.js}"></script>
-	<script th:src="@{/Uploader/js/global.js}"></script>
-	<script th:src="@{/Uploader/js/webuploader.js}"></script>
-	
 <body class="white-bg" style="margin-top: -20px;">
     <div class="wrapper wrapper-content animated fadeInRight ibox-content">
         <form class="form-horizontal m" id="form-notice-add">
@@ -106,7 +97,24 @@
 			</div>
 		</form>
 	</div>
-    <div th:include="include::footer"></div>
+    <script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/Uploader/js/global.js}"></script>
+	<script th:src="@{/Uploader/js/webuploader.js}"></script>
+
+	<!-- jquery-validate 表单验证插件 -->
+	<script th:src="@{/ajax/libs/validate/jquery.validate.min.js}"></script>
+	<script th:src="@{/ajax/libs/validate/messages_zh.min.js}"></script>
+	<script th:src="@{/ajax/libs/validate/jquery.validate.extend.js}"></script>
+	<!-- 遮罩层 -->
+	<script th:src="@{/ajax/libs/blockUI/jquery.blockUI.js}"></script>
+	<script th:src="@{/ajax/libs/layer/layer.min.js}"></script>
+	<script th:src="@{/ajax/libs/layui/layui.js}"></script>
+	<script th:src="@{/ruoyi/js/common.js?v=2.1.0}"></script>
+	<script th:src="@{/ruoyi/js/ry-ui.min.js?v=2.1.0}"></script>
+	<script src="http://tajs.qq.com/stats?sId=62048022"></script>
+	<script th:inline="javascript"> var ctx = [[@{/}]]; </script>
+	
     <script th:src="@{/ajax/libs/summernote/summernote.min.js?v=343}"></script>
     <script th:src="@{/ajax/libs/summernote/lang/summernote-zh-CN.js}"></script>
     
@@ -144,7 +152,7 @@
 		});
 		
 		$("#backList").click(function(){
-			 window.location.href=/*[[@{/}]]*/'/system/notice/flyList';
+			 window.location.href=/*[[@{/}]]*/'/pub/notice/flyList';
 		});
     });
 		
@@ -199,7 +207,7 @@
 						if (result.code == web_status.SUCCESS) {
 							$.modal.msgReload("保存成功,正在刷新数据请稍后……",
 									modal_status.SUCCESS)
-							window.location.href=/*[[@{/}]]*/'/system/notice/flyList';		
+							window.location.href=/*[[@{/}]]*/'/pub/notice/flyList';		
 						} else {
 							$.modal.alertError(result.msg)
 						}

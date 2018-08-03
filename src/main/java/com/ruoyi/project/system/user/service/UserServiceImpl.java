@@ -2,6 +2,9 @@ package com.ruoyi.project.system.user.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.common.constant.UserConstants;
@@ -173,7 +176,11 @@ public class UserServiceImpl implements IUserService
         {
             user.randomSalt();
             user.setPassword(passwordService.encryptPassword(user.getLoginName(), user.getPassword(), user.getSalt()));
-            user.setCreateBy(ShiroUtils.getLoginName());
+            
+            Subject subject=SecurityUtils.getSubject();
+            if(subject!=null&&subject.getPrincipal()!=null){
+            	user.setCreateBy(ShiroUtils.getLoginName());
+            }
             // 新增用户信息
             count = userMapper.insertUser(user);
             // 新增用户岗位关联

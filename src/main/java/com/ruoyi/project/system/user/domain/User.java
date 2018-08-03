@@ -79,6 +79,8 @@ public class User extends BaseEntity
 
     /** 岗位组 */
     private Long[] postIds;
+    
+    private Integer noticeCount=5;//发布公告的数量
 
     public Long getUserId()
     {
@@ -281,14 +283,22 @@ public class User extends BaseEntity
         this.postIds = postIds;
     }
 
-    @Override
+    public Integer getNoticeCount() {
+		return noticeCount;
+	}
+
+	public void setNoticeCount(Integer noticeCount) {
+		this.noticeCount = noticeCount;
+	}
+
+	@Override
     public String toString()
     {
         return "User [userId=" + userId + ", deptId=" + deptId + ", parentId=" + parentId + ", loginName=" + loginName
                 + ", userName=" + userName + ", email=" + email + ", phonenumber=" + phonenumber + ", sex=" + sex
                 + ", avatar=" + avatar + ", password=" + password + ", salt=" + salt + ", status=" + status
                 + ", delFlag=" + delFlag + ", loginIp=" + loginIp + ", loginDate=" + loginDate + ", dept=" + dept
-                + ", roleIds=" + Arrays.toString(roleIds) + ", postIds=" + Arrays.toString(postIds) + "]";
+                +",noticeCount="+noticeCount+ ", roleIds=" + Arrays.toString(roleIds) + ", postIds=" + Arrays.toString(postIds) + "]";
     }
 
 }

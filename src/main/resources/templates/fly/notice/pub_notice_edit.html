@@ -112,7 +112,7 @@
 			var sHTML = $('.summernote').summernote('code',content);
 			
 			$("#backList").click(function(){
-				 window.location.href=/*[[@{/}]]*/'/system/notice/flyList';
+				 window.location.href=/*[[@{/}]]*/'/pub/notice/flyList';
 			});
 	    });
 	    
@@ -146,7 +146,7 @@
 		}
 	    
 		//var prefix = ctx + "system/notice";
-		var prefix = /*[[@{/}]]*/'/system/notice';
+		var prefix = /*[[@{/}]]*/'/pub/notice';
 		$("#form-notice-edit").validate({
 			rules:{
 				xxxx:{
@@ -169,7 +169,7 @@
 						if (result.code == web_status.SUCCESS) {
 							$.modal.msgReload("保存成功,正在刷新数据请稍后……",
 									modal_status.SUCCESS)
-							window.location.href=/*[[@{/}]]*/'/system/notice/flyList';		
+							window.location.href=/*[[@{/}]]*/'/pub/notice/flyList';		
 						} else {
 							$.modal.alertError(result.msg)
 						}

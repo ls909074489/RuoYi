@@ -1,0 +1,6 @@
+20180803
+ALTER TABLE `sys_user` ADD COLUMN `notice_count`  integer(2) NULL DEFAULT 5 COMMENT '公告条数';
+ALTER TABLE sys_user ADD UNIQUE (login_name);
+
+
+

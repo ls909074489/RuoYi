@@ -40,12 +40,6 @@
       <li class="layui-nav-item">
         <a th:href="@{/pub/fly/reg}">注册</a>
       </li>
-      <li class="layui-nav-item layui-hide-xs">
-        <a href="/app/qq/" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" title="QQ登入" class="iconfont icon-qq"></a>
-      </li>
-      <li class="layui-nav-item layui-hide-xs">
-        <a href="/app/weibo/" onclick="layer.msg('正在通过微博登入', {icon:16, shade: 0.1, time:0})" title="微博登入" class="iconfont icon-weibo"></a>
-      </li>
     </ul>
   </div>
 </div>
@@ -60,18 +54,18 @@
       <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
         <div class="layui-tab-item layui-show">
           <div class="layui-form layui-form-pane">
-            <form method="post">
+            <form id="regForm" method="post">
               <div class="layui-form-item">
                 <label for="L_email" class="layui-form-label">邮箱</label>
                 <div class="layui-input-inline">
-                  <input type="text" id="L_email" name="email" required lay-verify="email" autocomplete="off" class="layui-input">
+                  <input type="text" id="L_email" name="email" required lay-verify="email" autocomplete="off" class="layui-input" value='123@qq.com'>
                 </div>
                 <div class="layui-form-mid layui-word-aux">将会成为您唯一的登入名</div>
               </div>
               <div class="layui-form-item">
-                <label for="L_username" class="layui-form-label">昵称</label>
+                <label for="L_username" class="layui-form-label">登录账号</label>
                 <div class="layui-input-inline">
-                  <input type="text" id="L_username" name="username" required lay-verify="required" autocomplete="off" class="layui-input">
+                  <input type="text" id="L_username" name="userName" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
               </div>
               <div class="layui-form-item">
@@ -93,16 +87,11 @@
                   <input type="text" id="L_vercode" name="vercode" required lay-verify="required" placeholder="请回答后面的问题" autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-mid">
-                  <span style="color: #c00;">{{d.vercode}}</span>
+                  <span style="color: #c00;"></span>
                 </div>
               </div>
               <div class="layui-form-item">
-                <button class="layui-btn" lay-filter="*" lay-submit>立即注册</button>
-              </div>
-              <div class="layui-form-item fly-form-app">
-                <span>或者直接使用社交账号快捷注册</span>
-                <a href="" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" class="iconfont icon-qq" title="QQ登入"></a>
-                <a href="" onclick="layer.msg('正在通过微博登入', {icon:16, shade: 0.1, time:0})" class="iconfont icon-weibo" title="微博登入"></a>
+                <button type="button" class="layui-btn"  lay-submit lay-filter="loginFormFilterBtn">立即注册</button>
               </div>
             </form>
           </div>
@@ -122,6 +111,7 @@
   </p>
 </div>
 
+<script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
 <script th:src="@{/fly/res/layui/layui.js}"></script>
 <script>
 layui.cache.page = 'user';
@@ -138,6 +128,42 @@ layui.config({
 }).extend({
   fly: 'index'
 }).use('fly');
+
+
+$(".layui-btn").click(function(){
+	layui.use('form', function(){
+	  var form = layui.form;
+	  //监听提交
+	  form.on('submit(loginFormFilterBtn)', function(data){
+		var loginWaitLoad=layer.load(2);
+	    $.ajax({
+			type : "POST",
+			data :$("#regForm").serializeArray(),
+			url :  /*[[@{/}]]*/'/pub/fly/reg',
+			async : true,
+			dataType : "json",
+			success : function(data) {
+				layer.close(loginWaitLoad);
+				if (data.code==0) {
+					layer.msg('注册成功，请登录', {icon: 1}); 
+					 setTimeout('toLogin()',1000); 
+				}else {
+					layer.alert(data.msg);  
+				}
+			},
+			error : function(data) {
+				layer.close(loginWaitLoad);
+				layer.alert("登录失败，请联系管理员");  
+			}
+		});
+	    return false;
+	  });
+	});
+});
+
+function toLogin(){
+	window.location.href=/*[[@{/}]]*/'/pub/fly/login';
+}
 </script>
 
 </body>

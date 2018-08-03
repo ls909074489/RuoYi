@@ -40,12 +40,6 @@
       <li class="layui-nav-item">
         <a th:href="@{/pub/fly/reg}">注册</a>
       </li>
-      <li class="layui-nav-item layui-hide-xs">
-        <a href="/app/qq/" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" title="QQ登入" class="iconfont icon-qq"></a>
-      </li>
-      <li class="layui-nav-item layui-hide-xs">
-        <a href="/app/weibo/" onclick="layer.msg('正在通过微博登入', {icon:16, shade: 0.1, time:0})" title="微博登入" class="iconfont icon-weibo"></a>
-      </li>
     </ul>
   </div>
 </div>
@@ -89,11 +83,6 @@
                 <span style="padding-left:20px;">
                   <a href="forget.html">忘记密码？</a>
                 </span>
-              </div>
-              <div class="layui-form-item fly-form-app">
-                <span>或者使用社交账号登入</span>
-                <a href="" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" class="iconfont icon-qq" title="QQ登入"></a>
-                <a href="" onclick="layer.msg('正在通过微博登入', {icon:16, shade: 0.1, time:0})" class="iconfont icon-weibo" title="微博登入"></a>
               </div>
             </form>
           </div>
@@ -147,7 +136,7 @@ $(".layui-btn").click(function(){
 				layer.close(loginWaitLoad);
 				if (data.code==0) {
 					layer.msg('登录成功', {icon: 1}); 
-					window.location.href=/*[[@{/}]]*/'/system/notice/flyList';
+					window.location.href=/*[[@{/}]]*/'/pub/notice/flyList';
 				}else {
 					layer.alert(data.msg);  
 				}

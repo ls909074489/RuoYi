@@ -216,11 +216,11 @@ public class ShiroConfig
         // 注入缓存管理器;
         securityManager.setCacheManager(getEhCacheManager());
         // session管理器
-//        securityManager.setSessionManager(sessionManager());
+        securityManager.setSessionManager(sessionManager());
         
-        OnlineWebSessionManager sessionManager = new OnlineWebSessionManager();
-        sessionManager.setSessionDAO(redisSessionDAO);
-        securityManager.setSessionManager(sessionManager);
+//        OnlineWebSessionManager sessionManager = new OnlineWebSessionManager();
+//        sessionManager.setSessionDAO(redisSessionDAO);
+//        securityManager.setSessionManager(sessionManager);
         
         return securityManager;
     }

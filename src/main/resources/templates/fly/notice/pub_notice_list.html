@@ -33,10 +33,13 @@
       
       <!-- 未登入的状态 -->
       <li class="layui-nav-item">
-        <a class="iconfont icon-touxiang layui-hide-xs"></a>
+        <a class="iconfont icon-touxiang layui-hide-xs" href="user/login.html"></a>
       </li>
       <li class="layui-nav-item">
-        [[${userName}]]
+        <a th:href="@{/pub/fly/login}">登入</a>
+      </li>
+      <li class="layui-nav-item">
+        <a th:href="@{/pub/fly/reg}">注册</a>
       </li>
     </ul>
   </div>
@@ -44,27 +47,8 @@
 
 <div class="fly-panel fly-column">
   <div class="layui-container">
-    <!-- <ul class="layui-clear">
-      <li class="layui-hide-xs layui-this"><a href="/">首页</a></li> 
-      <li><a href="jie/index.html">提问</a></li> 
-      <li><a href="jie/index.html">分享<span class="layui-badge-dot"></span></a></li> 
-      <li><a href="jie/index.html">讨论</a></li> 
-      <li><a href="jie/index.html">建议</a></li> 
-      <li><a href="jie/index.html">公告</a></li> 
-      <li><a href="jie/index.html">动态</a></li> 
-      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><span class="fly-mid"></span></li> 
-      
-      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/index.html">我发表的贴</a></li> 
-      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/index.html#collection">我收藏的贴</a></li> 
-    </ul>  -->
-    
-    <!-- <div class="fly-column-right"> 
-      <span class="fly-search"><i class="layui-icon"></i></span>
-      <a href="jie/add.html" class="layui-btn">发表新帖</a> 
-    </div> 
-    <div class="layui-hide-sm layui-show-xs-block" style="margin-top: -10px; padding-bottom: 10px; text-align: center;"> 
-      <a href="jie/add.html" class="layui-btn">发表新帖</a> 
-    </div> --> 
+    <ul class="layui-clear">
+    </ul> 
   </div>
 </div>
 
@@ -72,21 +56,13 @@
   <div class="layui-row layui-col-space15">
     <div class="layui-col-md12">
       <div class="fly-panel">
-       <div class="fly-panel-title fly-filter">
-         <!--  <a>置顶</a>
-          <a href="#signin" class="layui-hide-sm layui-show-xs-block fly-right" id="LAY_goSignin" style="color: #FF5722;">去签到</a> -->
-          <div class="fly-column-right" style="margin-right: 15px;"> 
-	      	<a href="#" onclick="toAdd();" class="layui-btn"  style="color: white;">发表新帖</a> 
-	      </div> 
-        </div>
-        
         <ul class="fly-list">
           <li style="padding-left: 15px;" th:each="notice : ${list}">
             <h2>
               <a class="layui-badge" th:if="${notice.noticeType} == '1'" th:text="通知"></a>
               <a class="layui-badge" th:if="${notice.noticeType} == '2'" th:text="公告"></a>
               <a style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 65%;" 
-              	th:href="@{/system/notice/flyView(noticeId=${notice.noticeId})}" th:text="${notice.noticeTitle}"></a>
+              	th:href="@{/pub/notice/view(noticeId=${notice.noticeId},userName=${userName})}" th:text="${notice.noticeTitle}"></a>
             </h2>
             <div class="fly-list-info"  style="">
               <span class="" th:text="${notice.createDateTimeStr}"></span>
@@ -96,8 +72,8 @@
               </span>
             </div>
             <div class="fly-list-badge">
-              <span class="layui-badge layui-bg-green"  th:onclick="'javascript: toEdit('+${notice.noticeId}+')' ">编辑</span>
-              <span class="layui-badge layui-bg-red">删除</span>
+              <span class="layui-badge layui-bg-black">置顶</span>
+              <span class="layui-badge layui-bg-red">精帖</span>
             </div>
           </li>
         </ul>
@@ -118,15 +94,5 @@
   </p>
 </div>
 
-<script type="text/javascript">
-	//编辑页面
-	function toEdit(id){
-		window.location.href=/*[[@{/}]]*/'/system/notice/flyEdit/'+id;
-	}
-	//添加页面
-	function toAdd(){
-		window.location.href=/*[[@{/}]]*/'/system/notice/flyAdd';
-	}
-</script>
 </body>
 </html>
