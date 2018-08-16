@@ -276,6 +276,11 @@
 		    <artifactId>commons-pool2</artifactId>
 		</dependency>
 		<!--spring boot 与redis应用基本环境配置 end -->
+		
+		 <dependency>
+            <groupId>com.rabbitmq</groupId>
+            <artifactId>amqp-client</artifactId>
+		 </dependency>
 	</dependencies>
 
 	<build>
